@@ -70,3 +70,31 @@ code {
   padding:2vw;
   box-shadow: 0 0 1vw #274c77;
 }
+
+.loki {
+  width: 10vw;
+  height: 8vw;
+  clip-path: circle();
+}
+
+.co-logo-name-wrapper {
+  display: inline-block;
+}
+
+.co-logo {
+  width:7vw;
+  height:7vw;
+}
+
+.co-row-wrapper {
+  text-align: center;
+}
+
+.home-body {
+  text-align: center;
+}
+
+.home-about {
+  font-size: 3vw;
+  margin:4vw;
+}

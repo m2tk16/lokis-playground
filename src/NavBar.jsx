@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
-
+import Loki from "./images/loki-head.png";
 
 function NavBar() {
   return (
@@ -12,6 +12,7 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href={"/"}>
+            <img className="loki" src={Loki} alt="amzn-logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
