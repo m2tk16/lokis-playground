@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Envelope } from 'react-bootstrap-icons';
+
 
 const Footer = () => {
     return (
@@ -12,9 +14,24 @@ const Footer = () => {
             </Col>
         </Row>
         <Row>
-            <Col md={12} className="disclaimer-text">
-                Some disclaimer stuff here
+            <Col xs={1}></Col>
+            <Col xs={10} className="disclaimer-text">
+                <hr></hr> 
+                *This website participates in various affiliate programs and we may 
+                earn a commission if you click on certain links displayed on this site 
+                and make a purchase. We are legally obliged to inform you of our participation in these 
+                affiliate programs through this disclaimer.
+                We hold a deep passion for the well-being of our own animals and 
+                extend this concern to all animals. We would never intend to 
+                jeopardize the health or safety of other animals.
+                The products featured on this website are to be used at your own 
+                discretion. That said, we bear no responsibility for any adverse effects 
+                that may arise from the use of these products on your animals. 
+                It is strongly advised to consult with a professional veterinarian 
+                before making a purchase decision to ensure the safety and well-being 
+                of your animals.
             </Col>
+            <Col xs={1}></Col>
         </Row>
         <hr></hr>
         <Row>
@@ -23,7 +40,7 @@ const Footer = () => {
                 Links
             </Col>
             <Col xs={3} className="footer-contact-title">
-                Contact
+                Contact <Envelope />
             </Col>
             <Col xs={2} className="footer-spacer"></Col>
         </Row>
@@ -35,8 +52,8 @@ const Footer = () => {
             <Col xs={3}>
                 <a className="footer-links" href="/Food">Food</a>
             </Col>
-            <Col xs={3}>
-                test@gmail.com
+            <Col xs={4}>
+                <div className="email">lokies.playground@gmail.com</div>
             </Col>
             <Col xs={2} className="footer-spacer"></Col>
         </Row>

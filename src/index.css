@@ -38,6 +38,8 @@ code {
 .footer-links {
   text-align: left;
   text-decoration: none;
+  color:#000;
+  font-size: 3vw;
 }
 
 .footer-year {
@@ -56,4 +58,8 @@ code {
 
 .footer-year {
   padding-bottom: 3vw;
+}
+
+.email {
+  font-size:2vw;
 }
