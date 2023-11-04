@@ -63,3 +63,10 @@ code {
 .email {
   font-size:2vw;
 }
+
+.product-card{
+  border: 1px solid red;
+  margin:4vw;
+  padding:2vw;
+  box-shadow: 0 0 1vw #274c77;
+}

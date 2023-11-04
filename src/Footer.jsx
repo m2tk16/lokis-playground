@@ -47,10 +47,10 @@ const Footer = () => {
         <Row>
             <Col xs={2} className="footer-spacer"></Col>
             <Col xs={2}>
-                <a className="footer-links" href="/">Home</a>
+                <a className="footer-links" href="/home">Home</a>
             </Col>
             <Col xs={3}>
-                <a className="footer-links" href="/Food">Food</a>
+                <a className="footer-links" href="/food">Food</a>
             </Col>
             <Col xs={4}>
                 <div className="email">lokies.playground@gmail.com</div>
@@ -60,20 +60,20 @@ const Footer = () => {
         <Row>
             <Col xs={2} className="footer-spacer"></Col>
             <Col xs={2}>
-                <a className="footer-links" href="/">Health</a>
+                <a className="footer-links" href="/health">Health</a>
             </Col>
             <Col xs={3}>
-                <a className="footer-links" href="/Food">Toys</a>
+                <a className="footer-links" href="/food">Toys</a>
             </Col>
             <Col xs={5} className="footer-spacer"></Col>
         </Row>
         <Row>
             <Col xs={2} className="footer-spacer"></Col>
             <Col xs={2}>
-                <a href="/" className="footer-links">Training</a>
+                <a href="/training" className="footer-links">Training</a>
             </Col>
             <Col xs={3}>
-                <a className="footer-links" href="/Food">Leads</a>
+                <a className="footer-links" href="/leads">Leads</a>
             </Col>
             <Col xs={5} className="footer-spacer"></Col>
         </Row>
