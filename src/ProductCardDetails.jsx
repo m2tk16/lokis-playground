@@ -10,11 +10,10 @@ interface ProductCardDetailsProps {
     
 const ProductCardDetails = (props: ProductCardDetailsProps) => {
     const { data } = props;
-    console.log(props.data.review)
 
     return (
         <Tabs
-            defaultActiveKey="profile"
+            defaultActiveKey="about"
             id="product-tabs"
             className="mb-3"
         >

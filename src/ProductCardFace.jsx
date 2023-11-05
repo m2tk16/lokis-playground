@@ -37,8 +37,9 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                     ) : (
                         <ProductCardDetails data={data}/>
                     )}
-                </Col>
+                </Col> 
             </Row>
+            <hr className="image-divider"></hr>
             <Row>
                 <ListGroup className="list-group-flush">
                     <ListGroup.Item>
