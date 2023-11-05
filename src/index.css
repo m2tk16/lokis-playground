@@ -103,3 +103,7 @@ code {
   text-align: center;
   font-weight: 600;
 }
+
+.list-group-flush {
+  margin-left:1vw;
+}

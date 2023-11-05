@@ -16,6 +16,7 @@ interface ProductCardFaceProps {
   
 const ProductCardFace = (props: ProductCardFaceProps) => {
     const { data, index } = props;
+    // const [cardFace, setCardFace] = useState(Array(data.length).fill(true));
     const [cardFace, setCardFace] = useState([true, true])
 
     const handleCardSwap = () => {
@@ -32,9 +33,9 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
             <Row>
                 <Col xs={12}>
                     {cardFace[index] ? (
-                        <ProductCardDetails details={data.details}/>
-                    ) : (
                         <Card.Img src={data.image_url} alt="image"/>
+                    ) : (
+                        <ProductCardDetails data={data}/>
                     )}
                 </Col>
             </Row>
@@ -48,7 +49,9 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                             >
                                 {data.product_title}
                             </Col>
-                            <Col xs={2}><InfoCircleFill size={24}  onClick={() => handleCardSwap()}/></Col>
+                            <Col xs={2}>
+                                <InfoCircleFill size={24}  onClick={() => handleCardSwap()}/>
+                            </Col>
                         </Row>
                     </ListGroup.Item>
                     <ListGroup.Item>

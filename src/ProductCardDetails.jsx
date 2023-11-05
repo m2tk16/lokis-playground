@@ -4,27 +4,28 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
 interface ProductCardDetailsProps {
-    details: string
+    data: any
   }
   
     
 const ProductCardDetails = (props: ProductCardDetailsProps) => {
-    const { details } = props;
+    const { data } = props;
+    console.log(props.data.review)
 
     return (
         <Tabs
             defaultActiveKey="profile"
-            id="uncontrolled-tab-example"
+            id="product-tabs"
             className="mb-3"
         >
             <Tab eventKey="about" title="About">
-                {details}
+                {data.about}
             </Tab>
             <Tab eventKey="specs" title="Specs">
-            Tab content for Specs
+                {data.specs}
             </Tab>
-            <Tab eventKey="reviews" title="Reviews">
-            Tab content for Reviews
+            <Tab eventKey="review" title="Review">
+                {data.review}
             </Tab>
         </Tabs>
     )
