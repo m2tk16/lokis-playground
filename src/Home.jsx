@@ -16,7 +16,7 @@ const Home = () => {
                 </Col>
             </Row>
             <Row>
-                <Col md={12}>
+                <Col md={8}>
                     <div className="home-about">
                         Let's start off here: My wife and I love our dog more than anything in the world. 
                         Our dog is Loki -- a 3 year old full black labador retriver, if you haven't caught on yet. 

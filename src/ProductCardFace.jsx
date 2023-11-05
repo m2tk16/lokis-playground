@@ -7,11 +7,20 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import AMZNLogo from "./images/amzn-logo.png";
 import ChewyLogo from "./images/chewy-logo.png";
 
-const ProductCard = () => {
+interface ProductCardFaceProps {
+    data: any
+  }
+  
+const ProductCardFace = (props: ProductCardFaceProps) => {
+    const { data } = props;
+    
     return (
         <Card className="product-card">
-            <img src="//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B07CTKSVKK&Format=_SL110_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=lokisplaygrou-20&language=en_US" alt="imge"/>
+            <img src={data.product_url} alt="imge"/>
             <ListGroup className="list-group-flush">
+            <ListGroup.Item>
+                <Col xs={12} className="product-card-title">{data.product_title}</Col>
+            </ListGroup.Item>
             <ListGroup.Item>
                 <Row className="co-row-wrapper">
                     <Col xs={6}>
@@ -25,10 +34,10 @@ const ProductCard = () => {
                 </Row>
                 <Row className="co-row-wrapper">
                     <Col xs={6}>
-                        $10.99
+                        {data.amazon_price}
                     </Col>
                     <Col xs={6}>
-                        $11.29
+                        {data.chewy_price}
                     </Col>
                 </Row>
             </ListGroup.Item>
@@ -37,4 +46,4 @@ const ProductCard = () => {
     )
 }
 
-export default ProductCard;
+export default ProductCardFace;

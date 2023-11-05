@@ -98,3 +98,8 @@ code {
   font-size: 3vw;
   margin:4vw;
 }
+
+.product-card-title {
+  text-align: center;
+  font-weight: 600;
+}
