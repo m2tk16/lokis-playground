@@ -1,5 +1,7 @@
 import React from "react";
 import "./App.css";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
@@ -10,21 +12,51 @@ interface ProductCardDetailsProps {
     
 const ProductCardDetails = (props: ProductCardDetailsProps) => {
     const { data } = props;
+    const specs = data.specs;
+    const pros = data.review.pros;
+    const cons = data.review.cons;
 
     return (
         <Tabs
             defaultActiveKey="about"
             id="product-tabs"
-            className="mb-3"
+            className="mb-3 tab-content"
         >
             <Tab eventKey="about" title="About">
                 {data.about}
             </Tab>
             <Tab eventKey="specs" title="Specs">
-                {data.specs}
+                <ul>
+                    {specs.map((s, index) => (
+                        <li key={index}>{s}</li>
+                    ))}
+                </ul>
             </Tab>
             <Tab eventKey="review" title="Review">
-                {data.review}
+                <Row>
+                    <Col xs={1}></Col>
+                    <Col className="pro-con-title" xs={11}>Pros:</Col>
+                </Row>
+                <Row>
+                <Col xs={1} key="pros-spacer"></Col>
+                    <Col xs={11} key="pros-title">
+                        <ul>
+                            <li>{pros}</li>
+                        </ul>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={1}></Col>
+                    <Col className="pro-con-title" xs={11}>Cons:</Col>
+                </Row>
+                <Row>
+                    <Col xs={1} key="cons-spacer"></Col>
+                    <Col xs={11} key="cons-title">
+                        <ul>
+                            <li>{cons}</li>
+                        </ul>
+                    </Col>
+                </Row>
             </Tab>
         </Tabs>
     )

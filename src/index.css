@@ -111,3 +111,12 @@ code {
 .image-divider{
   padding-top:2vw;
 }
+
+.tab-content {
+  font-size: 2.5vw;
+}
+
+.pro-con-title {
+  font-size: 3vw;
+  font-weight: 600;
+}
