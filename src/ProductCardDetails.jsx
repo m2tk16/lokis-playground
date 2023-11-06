@@ -41,7 +41,9 @@ const ProductCardDetails = (props: ProductCardDetailsProps) => {
                 <Col xs={1} key="pros-spacer"></Col>
                     <Col xs={11} key="pros-title">
                         <ul>
-                            <li>{pros}</li>
+                            {pros.map((s, index) => (
+                                <li>{s}</li>
+                            ))}
                         </ul>
                     </Col>
                 </Row>
@@ -53,7 +55,9 @@ const ProductCardDetails = (props: ProductCardDetailsProps) => {
                     <Col xs={1} key="cons-spacer"></Col>
                     <Col xs={11} key="cons-title">
                         <ul>
-                            <li>{cons}</li>
+                            {cons.map((s, index) => (
+                                <li>{s}</li>
+                            ))}
                         </ul>
                     </Col>
                 </Row>

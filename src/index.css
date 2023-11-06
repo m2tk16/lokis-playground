@@ -25,21 +25,21 @@ code {
 
 .disclaimer-title {
   text-align: center;
-  font-size: 3vw;
+  font-size: .8em;
   font-weight: 600;
 }
 
 .disclaimer-text {
   font-style: italic;
   text-align: center;
-  font-size: 2vw;
+  font-size: .5em;
 }
 
 .footer-links {
   text-align: left;
   text-decoration: none;
   color:#000;
-  font-size: 3vw;
+  font-size: .8em;
 }
 
 .footer-year {
@@ -47,12 +47,12 @@ code {
 }
 
 .footer-link-title {
-  font-size:3vw;
+  font-size:1em;
   font-weight: 600;
 }
 
 .footer-contact-title {
-  font-size:3vw;
+  font-size:1em;
   font-weight: 600;
 }
 
@@ -61,7 +61,7 @@ code {
 }
 
 .email {
-  font-size:2vw;
+  font-size:.5em;
 }
 
 .product-card{
@@ -95,13 +95,14 @@ code {
 }
 
 .home-about {
-  font-size: 3vw;
+  font-size: .8em;
   margin:4vw;
 }
 
 .product-card-title {
   text-align: center;
   font-weight: 600;
+  font-size:.8em;
 }
 
 .list-group-flush {
@@ -109,14 +110,18 @@ code {
 }
 
 .image-divider{
-  padding-top:2vw;
+  padding-top:.5vw;
 }
 
 .tab-content {
-  font-size: 2.5vw;
+  font-size: .8em;
 }
 
 .pro-con-title {
-  font-size: 3vw;
+  font-size: 1em;
   font-weight: 600;
+}
+
+.image-wrapper{
+  text-align: center;
 }

@@ -33,17 +33,22 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
             <Row>
                 <Col xs={12}>
                     {cardFace[index] ? (
-                        <Card.Img src={data.image_url} alt="image"/>
+                        <div class="image-wrapper">
+                            <a href={data.product_url} target="_blank" rel="noreferrer">
+                                <img alt="none" border="0" src={data.image_url_pt_one} />
+                            </a>
+                            <img src={data.image_url_pt_two} alt="" />
+                        </div>
                     ) : (
                         <ProductCardDetails data={data}/>
                     )}
-                </Col> 
+                </Col>
             </Row>
-            <hr className="image-divider"></hr>
             <Row>
                 <ListGroup className="list-group-flush">
                     <ListGroup.Item>
                         <Row>
+                            <hr className="image-divider"></hr>
                             <Col 
                                 xs={10} 
                                 className="product-card-title"
