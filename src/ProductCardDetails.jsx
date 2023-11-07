@@ -15,6 +15,7 @@ const ProductCardDetails = (props: ProductCardDetailsProps) => {
     const specs = data.specs;
     const pros = data.review.pros;
     const cons = data.review.cons;
+    const about = data.about;
 
     return (
         <Tabs
@@ -23,7 +24,11 @@ const ProductCardDetails = (props: ProductCardDetailsProps) => {
             className="mb-3 tab-content"
         >
             <Tab eventKey="about" title="About">
-                {data.about}
+                <ul>
+                    {about.map((s, index) => (
+                        <li key={index}>{s}</li>
+                    ))}
+                </ul>
             </Tab>
             <Tab eventKey="specs" title="Specs">
                 <ul>
