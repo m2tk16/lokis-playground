@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Form from 'react-bootstrap/Form';
 import ProductCardDetails from "./ProductCardDetails"
 import AMZNLogo from "./images/amzn-logo.png";
 import ChewyLogo from "./images/chewy-logo.png";
@@ -16,8 +17,8 @@ interface ProductCardFaceProps {
   
 const ProductCardFace = (props: ProductCardFaceProps) => {
     const { data, index } = props;
-    // const [cardFace, setCardFace] = useState(Array(data.length).fill(true));
-    const [cardFace, setCardFace] = useState([true, true])
+    const [cardFace, setCardFace] = useState(Array(data.length).fill(true));
+    const [sizeOption, setSizeOption] = useState("MD")
 
     const handleCardSwap = () => {
         setCardFace(prevCardFace => {
@@ -27,13 +28,42 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
         })
     }
 
+    const handleRadioChange = (event) => {
+        setSizeOption(event.target.value)
+    }
+
+
+    const sizeComponent = () => {
+        return (
+            <ListGroup.Item>
+                <Form>
+                    <Row>
+                        {['XS', 'SM', 'MD', 'LG', 'XL'].map((size) => (
+                            <Col xs={2} key={size}>
+                                <Form.Check
+                                    type="radio"
+                                    id={size}
+                                    label={size}
+                                    checked={sizeOption === size}
+                                    onChange={handleRadioChange}
+                                    value={size}
+                
+                                />
+                            </Col>
+                        ))}
+                    </Row>
+                </Form>
+            </ListGroup.Item> 
+        )
+    }
+
     return (
         <Card className="product-card" key={data.details+index}>
 
             <Row>
                 <Col xs={12}>
                     {cardFace[index] ? (
-                        <div class="image-wrapper">
+                        <div className="image-wrapper">
                             <a href={data.product_url} target="_blank" rel="noreferrer">
                                 <img alt="none" border="0" src={data.image_url_pt_one} />
                             </a>
@@ -60,6 +90,11 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                             </Col>
                         </Row>
                     </ListGroup.Item>
+                    
+                    {data.has_size === 'Y' &&
+                        sizeComponent()
+                    }
+
                     <ListGroup.Item>
                         <Row className="co-row-wrapper">
                             <Col xs={6}>

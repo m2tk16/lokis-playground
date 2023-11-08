@@ -39,10 +39,10 @@ const Footer = () => {
             <Col xs={4} className="footer-link-title">
                 Links
             </Col>
-            <Col xs={3} className="footer-contact-title">
+            <Col xs={4} className="footer-contact-title">
                 Contact <Envelope />
             </Col>
-            <Col xs={2} className="footer-spacer"></Col>
+          
         </Row>
         <Row>
             <Col xs={2} className="footer-spacer"></Col>
@@ -55,7 +55,7 @@ const Footer = () => {
             <Col xs={4}>
                 <div className="email">lokies.playground@gmail.com</div>
             </Col>
-            <Col xs={2} className="footer-spacer"></Col>
+            <Col xs={1} className="footer-spacer"></Col>
         </Row>
         <Row>
             <Col xs={2} className="footer-spacer"></Col>

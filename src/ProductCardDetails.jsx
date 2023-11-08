@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
+
 interface ProductCardDetailsProps {
     data: any
   }
@@ -47,7 +48,7 @@ const ProductCardDetails = (props: ProductCardDetailsProps) => {
                     <Col xs={11} key="pros-title">
                         <ul>
                             {pros.map((s, index) => (
-                                <li>{s}</li>
+                                <li key={index}>{s}</li>
                             ))}
                         </ul>
                     </Col>
@@ -61,7 +62,7 @@ const ProductCardDetails = (props: ProductCardDetailsProps) => {
                     <Col xs={11} key="cons-title">
                         <ul>
                             {cons.map((s, index) => (
-                                <li>{s}</li>
+                                <li key={index}>{s}</li>
                             ))}
                         </ul>
                     </Col>
