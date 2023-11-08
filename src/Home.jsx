@@ -16,14 +16,32 @@ const Home = () => {
                 </Col>
             </Row>
             <Row>
-                <Col md={8}>
+                <Col className="home-column" md={6}>
+                    <div><b>About Us</b></div>
                     <div className="home-about">
-                        Let's start off here: My wife and I love our dog more than anything in the world. 
-                        Our dog is Loki -- a 3 year old full black labador retriver, if you haven't caught on yet. 
-                        He is 100% a covid dog while I worked from home. If you can relate to this, kudos, we survied.
-                        Loki means the world to us and basically gets anything he wants. That said, we have 
-                        bought our fair share (thousands) of dollars of almost anything that will 
-                        occupy his time. As I like to say, he is "A nuclear bomb of energy".
+                        Kick-off time: My partner and I absolutely adore our canine companion. 
+                        Meet Loki, our dashing three-year-old black Labrador Retriever, 
+                        who has undoubtedly stolen the spotlight in our lives. He's our bona 
+                        fide "pandemic pup," having been my sidekick throughout the work-from-home 
+                        era – shoutout to fellow pet parents who've been in the same boat; 
+                        we've made it through together! For Loki, the sky's the limit; 
+                        he's the proud recipient of a treasure trove of toys and gadgets,
+                        all aimed at channeling his boundless zest for life. In our household, 
+                        he's known as the 'Nuclar bomb of energy,' a whirlwind of vivacious 
+                        energy that never seems to wind down.
+                    </div>
+                </Col>
+                <Col className="home-column" md={6}>
+                <div><b>Purpose of this website</b></div>
+                    <div className="home-about">
+                        The primary objective of this platform is to curate a selection of products that 
+                        cater to both new and seasoned dog owners. Each item presented has been personally 
+                        acquired and rigorously tested by Loki, ensuring an authentic puppy seal of approval. 
+                        Our aim is to provide valuable insights, and while our experiences with these products 
+                        vary, we believe in sharing our perspective to benefit others. Our mission is fulfilled 
+                        if we can guide you to cost-effective choices or provide answers to your queries. 
+                        The list of products will evolve, so we invite you to revisit for the latest 
+                        recommendations.  
                     </div>
                 </Col>
             </Row>

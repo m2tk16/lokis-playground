@@ -96,7 +96,9 @@ code {
 
 .home-about {
   font-size: .8em;
-  margin:4vw;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  margin-bottom: 1vw;
 }
 
 .product-card-title {
@@ -124,4 +126,15 @@ code {
 
 .image-wrapper{
   text-align: center;
+}
+
+.lokis-font {
+  color:green;
+  display: inline-block;
+  font-weight: 400;
+  font-size:1em;
+}
+
+.home-column {
+  padding-bottom:4vw;
 }

@@ -13,6 +13,7 @@ function NavBar() {
       <Container>
         <Navbar.Brand href={"/"}>
             <img className="loki" src={Loki} alt="amzn-logo" />
+            <div className="lokis-font">l𝑜Ҝ𝕀'ᔕ 𝓟ᒪ𝐚Ⓨgя𝑜𝓊ภᗪ</ div>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
