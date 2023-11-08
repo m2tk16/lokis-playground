@@ -4,13 +4,13 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 
-const Home = () => {
+const Accessories = () => {
     return (
         <>
         <Row>
             <Col md={12}>
                 <div className="home-title">
-                    leads
+                Accessories
                 </div>
             </Col>
         </Row>
@@ -18,4 +18,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Accessories;

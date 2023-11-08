@@ -7,7 +7,6 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import ProductCardDetails from "./ProductCardDetails"
 import AMZNLogo from "./images/amzn-logo.png";
-import ChewyLogo from "./images/chewy-logo.png";
 import { InfoCircleFill } from 'react-bootstrap-icons';
 
 interface ProductCardFaceProps {
@@ -26,7 +25,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
     const [specs, SetSpecs] = useState(data.XS_specs);
 
 
-    const handleCardSwap = () => {
+    const handleCardSwap = (index) => {
         setCardFace(prevCardFace => {
             const newCardFace = [...prevCardFace];
             newCardFace[index] = !newCardFace[index];
@@ -55,6 +54,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
             <ListGroup.Item>
                 <Form>
                     <Row>
+                        <Col xs={1}></Col>
                         {data.available_size.map((size) => (
                             <Col xs={2} key={size}>
                                 <Form.Check
@@ -67,6 +67,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                                 />
                             </Col>
                         ))}
+                        <Col xs={1}></Col>
                     </Row>
                 </Form>
             </ListGroup.Item> 
@@ -102,7 +103,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                                 {data.product_title}
                             </Col>
                             <Col xs={2}>
-                                <InfoCircleFill size={24}  onClick={() => handleCardSwap()}/>
+                                <InfoCircleFill size={24}  onClick={() => handleCardSwap(index)}/>
                             </Col>
                         </Row>
                     </ListGroup.Item>
@@ -113,23 +114,11 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
 
                     <ListGroup.Item>
                         <Row className="co-row-wrapper">
-                            <Col xs={6}>
+                            <Col xs={12}>
                                 <a href={productUrl} target="_blank" rel="noreferrer">
                                     <img className="co-logo" src={AMZNLogo} alt="amzn-logo" />
-                                    Amazon
+                                    {"Amazon   " + price}
                                 </a>
-                            </Col>
-                            <Col xs={6}>
-                                <img className="co-logo"  src={ChewyLogo} alt="chewy-logo" />
-                                Chewy
-                            </Col>
-                        </Row>
-                        <Row className="co-row-wrapper">
-                            <Col xs={6}>
-                                {price}
-                            </Col>
-                            <Col xs={6}>
-                                {data.chewy_price}
                             </Col>
                         </Row>
                     </ListGroup.Item>

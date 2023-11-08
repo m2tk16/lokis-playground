@@ -23,7 +23,7 @@ const Health = () => {
     return (
         <Row>
             {data.map((item, index) => (
-                <Col key={index} sm={6}>
+                <Col key={index} sm={4}>
                     <ProductCardFace data={data[index]} index={index}/>
                 </Col>
             ))}

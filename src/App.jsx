@@ -8,8 +8,7 @@ import Home from "./Home";
 import Food from "./Food";
 import Toys from "./Toys";
 import Health from "./Health";
-import Training from "./Training";
-import Leads from "./Leads";
+import Accessories from "./Accessories";
 import Footer from "./Footer";
 
 
@@ -23,8 +22,7 @@ function App() {
             <Route path='/food' element={<Food />} />
             <Route path='/toys' element={<Toys />} />
             <Route path='/health' element={<Health />} />
-            <Route path='/training' element={<Training />} />
-            <Route path='/leads' element={<Leads />} />
+            <Route path='/accessories' element={<Accessories />} />
           </Routes>
           <Footer />
         </Router>

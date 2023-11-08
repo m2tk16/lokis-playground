@@ -21,8 +21,7 @@ function NavBar() {
             <Nav.Link href="/food">Food</Nav.Link>
             <Nav.Link href="/health">Health</Nav.Link>
             <Nav.Link href="/toys">Toys</Nav.Link>
-            <Nav.Link href="/training">Training</Nav.Link>
-            <Nav.Link href="/leads">Leads</Nav.Link>
+            <Nav.Link href="/accessories">Accessories</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

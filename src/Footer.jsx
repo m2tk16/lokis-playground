@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { Envelope } from 'react-bootstrap-icons';
+import { Envelope, Instagram } from 'react-bootstrap-icons';
 
 
 const Footer = () => {
@@ -40,7 +40,7 @@ const Footer = () => {
                 Links
             </Col>
             <Col xs={4} className="footer-contact-title">
-                Contact <Envelope />
+                Contact
             </Col>
           
         </Row>
@@ -53,7 +53,7 @@ const Footer = () => {
                 <a className="footer-links" href="/food">Food</a>
             </Col>
             <Col xs={4}>
-                <div className="email">lokies.playground@gmail.com</div>
+                <a href="mailto:lokies.playground@gmail.com"><Envelope /></a>
             </Col>
             <Col xs={1} className="footer-spacer"></Col>
         </Row>
@@ -65,7 +65,9 @@ const Footer = () => {
             <Col xs={3}>
                 <a className="footer-links" href="/food">Toys</a>
             </Col>
-            <Col xs={5} className="footer-spacer"></Col>
+            <Col xs={5} className="footer-spacer">
+                <a href="instagram://user?username=loki_lab_of_mischief920"><Instagram /></a>
+            </Col>
         </Row>
         <Row>
             <Col xs={2} className="footer-spacer"></Col>
