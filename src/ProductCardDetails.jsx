@@ -7,13 +7,13 @@ import Tabs from 'react-bootstrap/Tabs';
 
 
 interface ProductCardDetailsProps {
-    data: any
+    data: any,
+    specs: any
   }
   
     
 const ProductCardDetails = (props: ProductCardDetailsProps) => {
-    const { data } = props;
-    const specs = data.XS_specs;
+    const { data, specs } = props;
     const pros = data.review.pros;
     const cons = data.review.cons;
     const about = data.about;

@@ -23,6 +23,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
     const [productUrl, SetProductUrl] = useState(data.product_url.replace("{ASIN}", data.XS_asin));
     const [img1, SetImg1] = useState(data.image_url_pt_one.replace("{ASIN}", data.XS_asin));
     const [img2, SetImg2] = useState(data.image_url_pt_two.replace("{ASIN}", data.XS_asin));
+    const [specs, SetSpecs] = useState(data.XS_specs);
 
 
     const handleCardSwap = () => {
@@ -36,6 +37,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
     const handleRadioChange = (event) => {
         const target_value = event.target.value;
         SetPrice(data[target_value+"_amazon_price"]);
+        SetSpecs(data[target_value+"_specs"]);
 
         const product_url = data.product_url.replace("{ASIN}", data[target_value+"_asin"]);
         const image_url1 = data.image_url_pt_one.replace("{ASIN}", data[target_value+"_asin"]);
@@ -84,7 +86,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                             <img src={img2} alt="" />
                         </div>
                     ) : (
-                        <ProductCardDetails data={data}/>
+                        <ProductCardDetails data={data} specs={specs}/>
                     )}
                 </Col>
             </Row>
