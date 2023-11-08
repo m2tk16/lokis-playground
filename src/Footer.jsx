@@ -47,7 +47,7 @@ const Footer = () => {
         <Row>
             <Col xs={2} className="footer-spacer"></Col>
             <Col xs={2}>
-                <a className="footer-links" href="/home">Home</a>
+                <a className="footer-links" href="/">Home</a>
             </Col>
             <Col xs={3}>
                 <a className="footer-links" href="/food">Food</a>
@@ -63,7 +63,7 @@ const Footer = () => {
                 <a className="footer-links" href="/health">Health</a>
             </Col>
             <Col xs={3}>
-                <a className="footer-links" href="/food">Toys</a>
+                <a className="footer-links" href="/toys">Toys</a>
             </Col>
             <Col xs={5} className="footer-spacer">
                 <a href="instagram://user?username=loki_lab_of_mischief920"><Instagram /></a>
@@ -71,11 +71,8 @@ const Footer = () => {
         </Row>
         <Row>
             <Col xs={2} className="footer-spacer"></Col>
-            <Col xs={2}>
-                <a href="/training" className="footer-links">Training</a>
-            </Col>
             <Col xs={3}>
-                <a className="footer-links" href="/leads">Leads</a>
+                <a className="footer-links" href="/accessories">Accessories</a>
             </Col>
             <Col xs={5} className="footer-spacer"></Col>
         </Row>
