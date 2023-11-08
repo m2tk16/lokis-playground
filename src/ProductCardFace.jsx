@@ -18,7 +18,12 @@ interface ProductCardFaceProps {
 const ProductCardFace = (props: ProductCardFaceProps) => {
     const { data, index } = props;
     const [cardFace, setCardFace] = useState(Array(data.length).fill(true));
-    const [sizeOption, setSizeOption] = useState("MD")
+    const [sizeOption, setSizeOption] = useState("XS");
+    const [price, SetPrice] = useState(data.XS_amazon_price);
+    const [productUrl, SetProductUrl] = useState(data.product_url.replace("{ASIN}", data.XS_asin));
+    const [img1, SetImg1] = useState(data.image_url_pt_one.replace("{ASIN}", data.XS_asin));
+    const [img2, SetImg2] = useState(data.image_url_pt_two.replace("{ASIN}", data.XS_asin));
+
 
     const handleCardSwap = () => {
         setCardFace(prevCardFace => {
@@ -29,7 +34,17 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
     }
 
     const handleRadioChange = (event) => {
-        setSizeOption(event.target.value)
+        const target_value = event.target.value;
+        SetPrice(data[target_value+"_amazon_price"]);
+
+        const product_url = data.product_url.replace("{ASIN}", data[target_value+"_asin"]);
+        const image_url1 = data.image_url_pt_one.replace("{ASIN}", data[target_value+"_asin"]);
+        const image_url2 = data.image_url_pt_two.replace("{ASIN}", data[target_value+"_asin"]);
+
+        SetProductUrl(product_url);
+        SetImg1(image_url1);
+        SetImg2(image_url2);
+        setSizeOption(target_value);
     }
 
 
@@ -38,7 +53,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
             <ListGroup.Item>
                 <Form>
                     <Row>
-                        {['XS', 'SM', 'MD', 'LG', 'XL'].map((size) => (
+                        {data.available_size.map((size) => (
                             <Col xs={2} key={size}>
                                 <Form.Check
                                     type="radio"
@@ -47,7 +62,6 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                                     checked={sizeOption === size}
                                     onChange={handleRadioChange}
                                     value={size}
-                
                                 />
                             </Col>
                         ))}
@@ -64,10 +78,10 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                 <Col xs={12}>
                     {cardFace[index] ? (
                         <div className="image-wrapper">
-                            <a href={data.product_url} target="_blank" rel="noreferrer">
-                                <img alt="none" border="0" src={data.image_url_pt_one} />
+                            <a href={productUrl} target="_blank" rel="noreferrer">
+                                <img alt="none" border="0" src={img1} />
                             </a>
-                            <img src={data.image_url_pt_two} alt="" />
+                            <img src={img2} alt="" />
                         </div>
                     ) : (
                         <ProductCardDetails data={data}/>
@@ -98,7 +112,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                     <ListGroup.Item>
                         <Row className="co-row-wrapper">
                             <Col xs={6}>
-                                <a href={data.product_url} target="_blank" rel="noreferrer">
+                                <a href={productUrl} target="_blank" rel="noreferrer">
                                     <img className="co-logo" src={AMZNLogo} alt="amzn-logo" />
                                     Amazon
                                 </a>
@@ -110,7 +124,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                         </Row>
                         <Row className="co-row-wrapper">
                             <Col xs={6}>
-                                {data.amazon_price}
+                                {price}
                             </Col>
                             <Col xs={6}>
                                 {data.chewy_price}

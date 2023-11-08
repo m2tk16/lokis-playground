@@ -13,7 +13,7 @@ interface ProductCardDetailsProps {
     
 const ProductCardDetails = (props: ProductCardDetailsProps) => {
     const { data } = props;
-    const specs = data.specs;
+    const specs = data.XS_specs;
     const pros = data.review.pros;
     const cons = data.review.cons;
     const about = data.about;
