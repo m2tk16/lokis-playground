@@ -17,10 +17,11 @@ const Home = () => {
                 </Col>
             </Row>
             <Row>
+            <Col md={1}></Col>
                 <Col md={2}>
                     <img className="this-is-loki" src={ThisIsLoki} alt="loki-logo" />
                 </Col>
-                <Col className="home-column" md={5}>
+                <Col className="home-column" md={4}>
                     <div><b>About Us</b></div>
                     <div className="home-about">
                         <i>Kick-off time:</i> My wife and I absolutely adore our canine companion. 
@@ -35,7 +36,7 @@ const Home = () => {
                         energy that never seems to wind down.
                     </div>
                 </Col>
-                <Col className="home-column" md={5}>
+                <Col className="home-column" md={4}>
                     <div><b>Purpose of this website</b></div>
                     <div className="home-about">
                         The primary objective of this platform is to curate a selection of products that 
@@ -48,6 +49,7 @@ const Home = () => {
                         recommendations.  
                     </div>
                 </Col>
+                <Col md={1}></Col>
             </Row>
         </div>
     )
