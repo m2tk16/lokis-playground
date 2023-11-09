@@ -37,7 +37,7 @@ const Home = () => {
                     </div>
                 </Col>
                 <Col className="home-column" md={4}>
-                    <div><b>Purpose of this website</b></div>
+                    <div><b>Our Mission</b></div>
                     <div className="home-about">
                         The primary objective of this platform is to curate a selection of products that 
                         cater to both new and seasoned dog owners. Each item presented has been personally 
