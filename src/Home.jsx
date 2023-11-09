@@ -3,7 +3,7 @@ import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ThisIsLoki from "./images/loki-park.png";
-
+import LokiSilly from "./images/loki-silly.png";
 
 const Home = () => {
     return (
@@ -17,10 +17,12 @@ const Home = () => {
                 </Col>
             </Row>
             <Row>
-            <Col md={1}></Col>
-                <Col md={2}>
-                    <img className="this-is-loki" src={ThisIsLoki} alt="loki-logo" />
+
+                <Col md={4}>
+                    <img className="silly-loki" src={LokiSilly} alt="silly-loki" />
+                    <img className="this-is-loki" src={ThisIsLoki} alt="this-is-loki" />
                 </Col>
+             
                 <Col className="home-column" md={4}>
                     <div><b>About Us</b></div>
                     <div className="home-about">
@@ -49,7 +51,7 @@ const Home = () => {
                         recommendations.  
                     </div>
                 </Col>
-                <Col md={1}></Col>
+                
             </Row>
         </div>
     )

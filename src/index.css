@@ -78,12 +78,21 @@ code {
   clip-path: circle();
 }
 
-.this-is-loki {
-  width: 10em;
-  height: 13em;
+.silly-loki {
+  width: 8em;
+  height: 14em;
   border-radius:1em;
   margin-bottom: 4vw;
   box-shadow: 0 0 1vw #274c77;
+  margin-right:2vw;
+}
+
+.this-is-loki {
+  width: 9em;
+  height: 14em;
+  border-radius:1em;
+  margin-bottom: 4vw;
+  box-shadow: 0 0 1vw #274c77; 
 }
 
 .co-logo-name-wrapper {
