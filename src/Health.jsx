@@ -24,7 +24,7 @@ const Health = () => {
         <Row>
             {data.map((item, index) => (
                 <Col key={index} sm={4}>
-                    <ProductCardFace data={data[index]} index={index}/>
+                    <ProductCardFace data={data[index]} index={index} totalItems={data.length}/>
                 </Col>
             ))}
         </Row>

@@ -11,12 +11,13 @@ import { InfoCircleFill } from 'react-bootstrap-icons';
 
 interface ProductCardFaceProps {
     data: any,
+    totalItems: integer,
     index: integer
   }
   
 const ProductCardFace = (props: ProductCardFaceProps) => {
-    const { data, index } = props;
-    const [cardFace, setCardFace] = useState(Array(data.length).fill(true));
+    const { data, totalItems, index } = props;
+    const [cardFace, setCardFace] = useState(Array(totalItems).fill(true));
     const [sizeOption, setSizeOption] = useState("XS");
     const [price, SetPrice] = useState(data.XS_amazon_price);
     const [productUrl, SetProductUrl] = useState(data.product_url.replace("{ASIN}", data.XS_asin));
