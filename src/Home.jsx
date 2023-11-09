@@ -23,7 +23,7 @@ const Home = () => {
                 <Col className="home-column" md={5}>
                     <div><b>About Us</b></div>
                     <div className="home-about">
-                        <i>Kick-off time:</i> My partner and I absolutely adore our canine companion. 
+                        <i>Kick-off time:</i> My wife and I absolutely adore our canine companion. 
                         Meet Loki, our dashing three-year-old black Labrador Retriever, 
                         who has undoubtedly stolen the spotlight in our lives. He's our bona 
                         fide "pandemic pup," having been my sidekick throughout the work-from-home 
@@ -31,7 +31,7 @@ const Home = () => {
                         we've made it through together! For Loki, the sky's the limit; 
                         he's the proud recipient of a treasure trove of toys and gadgets,
                         all aimed at channeling his boundless zest for life. In our household, 
-                        he's known as the 'Nuclar bomb of energy,' a whirlwind of vivacious 
+                        he's known as the 'Nuclear bomb of energy,' a whirlwind of vivacious 
                         energy that never seems to wind down.
                     </div>
                 </Col>
