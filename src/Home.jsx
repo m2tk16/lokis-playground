@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import ThisIsLoki from "./images/loki-park.png";
 
 
 const Home = () => {
@@ -16,10 +17,13 @@ const Home = () => {
                 </Col>
             </Row>
             <Row>
-                <Col className="home-column" md={6}>
+                <Col md={2}>
+                    <img className="this-is-loki" src={ThisIsLoki} alt="loki-logo" />
+                </Col>
+                <Col className="home-column" md={5}>
                     <div><b>About Us</b></div>
                     <div className="home-about">
-                        Kick-off time: My partner and I absolutely adore our canine companion. 
+                        <i>Kick-off time:</i> My partner and I absolutely adore our canine companion. 
                         Meet Loki, our dashing three-year-old black Labrador Retriever, 
                         who has undoubtedly stolen the spotlight in our lives. He's our bona 
                         fide "pandemic pup," having been my sidekick throughout the work-from-home 
@@ -31,8 +35,8 @@ const Home = () => {
                         energy that never seems to wind down.
                     </div>
                 </Col>
-                <Col className="home-column" md={6}>
-                <div><b>Purpose of this website</b></div>
+                <Col className="home-column" md={5}>
+                    <div><b>Purpose of this website</b></div>
                     <div className="home-about">
                         The primary objective of this platform is to curate a selection of products that 
                         cater to both new and seasoned dog owners. Each item presented has been personally 

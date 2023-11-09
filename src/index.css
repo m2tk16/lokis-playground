@@ -72,9 +72,18 @@ code {
 }
 
 .loki {
-  width: 10vw;
-  height: 8vw;
+  width: 3em;
+  height: 3em;
+  margin-right:2vw;
   clip-path: circle();
+}
+
+.this-is-loki {
+  width: 10em;
+  height: 13em;
+  border-radius:1em;
+  margin-bottom: 4vw;
+  box-shadow: 0 0 1vw #274c77;
 }
 
 .co-logo-name-wrapper {
