@@ -17,12 +17,18 @@ interface ProductCardFaceProps {
   
 const ProductCardFace = (props: ProductCardFaceProps) => {
     const { data, totalItems, index } = props;
+
+    const ImgUrlPt1 = "//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={ASIN}&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=lokisplaygrou-20&language=en_US"
+    const ImgUrlPt2 = "https://ir-na.amazon-adsystem.com/e/ir?t=lokisplaygrou-20&language=en_US&l=li2&o=1&a={ASIN}"
+    const ProductUrl = "https://www.amazon.com/gp/product/{ASIN}?ie=UTF8&th=1&linkCode=li2&tag=lokisplaygrou-20&linkId=d38999b47cca2544ee4e72e4eb778e3b&language=en_US&ref_=as_li_ss_il"
+
+
     const [cardFace, setCardFace] = useState(Array(totalItems).fill(true));
     const [sizeOption, setSizeOption] = useState("XS");
     const [price, SetPrice] = useState(data.XS_amazon_price);
-    const [productUrl, SetProductUrl] = useState(data.product_url.replace("{ASIN}", data.XS_asin));
-    const [img1, SetImg1] = useState(data.image_url_pt_one.replace("{ASIN}", data.XS_asin));
-    const [img2, SetImg2] = useState(data.image_url_pt_two.replace("{ASIN}", data.XS_asin));
+    const [productUrl, SetProductUrl] = useState(ProductUrl.replace("{ASIN}", data.XS_asin));
+    const [img1, SetImg1] = useState(ImgUrlPt1.replace("{ASIN}", data.XS_asin));
+    const [img2, SetImg2] = useState(ImgUrlPt2.replace("{ASIN}", data.XS_asin));
     const [specs, SetSpecs] = useState(data.XS_specs);
 
 
@@ -39,9 +45,9 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
         SetPrice(data[target_value+"_amazon_price"]);
         SetSpecs(data[target_value+"_specs"]);
 
-        const product_url = data.product_url.replace("{ASIN}", data[target_value+"_asin"]);
-        const image_url1 = data.image_url_pt_one.replace("{ASIN}", data[target_value+"_asin"]);
-        const image_url2 = data.image_url_pt_two.replace("{ASIN}", data[target_value+"_asin"]);
+        const product_url = ProductUrl.replace("{ASIN}", data[target_value+"_asin"]);
+        const image_url1 = ImgUrlPt1.replace("{ASIN}", data[target_value+"_asin"]);
+        const image_url2 = ImgUrlPt2.replace("{ASIN}", data[target_value+"_asin"]);
 
         SetProductUrl(product_url);
         SetImg1(image_url1);
