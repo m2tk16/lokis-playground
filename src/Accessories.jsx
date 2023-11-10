@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import ProductCardFace from "./ProductCardFace"
 
+const Health = () => {
+    const [data, setData] = useState([])
 
-const Accessories = () => {
+    useEffect(() => {
+        const GetProducts = async () => {
+            const healthProductsURL = "https://s5m9p74ps0.execute-api.us-east-1.amazonaws.com/default/LokisPlaygroundAccessoryProductsLambda"
+            await fetch(healthProductsURL)
+                .then(response => response.json())
+                .then(response => {
+                    const d = JSON.parse(response.body)
+                    setData(d)
+                });
+            };
+            GetProducts()
+    },[]);
+
     return (
-        <>
         <Row>
-            <Col md={12}>
-                <div className="home-title">
-                Accessories
-                </div>
-            </Col>
+            {data.map((item, index) => (
+                <Col key={index} sm={4}>
+                    <ProductCardFace data={data[index]} index={index} totalItems={data.length}/>
+                </Col>
+            ))}
         </Row>
-        </>
     )
 }
 
-export default Accessories;
+export default Health;
