@@ -34,6 +34,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
     const [img2, SetImg2] = useState(ImgUrlPt2.replace("{ASIN}", data.XS_asin));
     const [specs, SetSpecs] = useState(data.XS_specs);
     const [stars, setStars] = useState((data.total_stars/data.total_like_clicks).toString().substring(0,4).replace("NaN", "0"));
+    
 
 
     const handleCardSwap = (index) => {
@@ -67,8 +68,8 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
         return <BsFillStarFill className="star-size" onClick={() => UpdateProductStars(value)}/>
      }
 
-    const starShading = (data) => {
-        const starValueDecimal = data.total_stars/data.total_like_clicks;
+    const starShading = (num, den) => {
+        const starValueDecimal = num/den;
 
         if (starValueDecimal < 1) {
             return <>{emptyStar("1")}{emptyStar("2")}{emptyStar("3")}{emptyStar("4")}{emptyStar("5")}</>
@@ -86,6 +87,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
             return <>{fullStar("1")}{fullStar("2")}{fullStar("3")}{fullStar("4")}{fullStar("5")}</>
         }
     }
+    const [starIcons, setStarIcons] = useState(starShading(data.total_stars, data.total_like_clicks))
 
     const UpdateProductStars = (value) => {
         const header = {
@@ -107,7 +109,9 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
             .then(response => {
                 const num = parseFloat(response.total_stars);
                 const den = parseFloat(response.total_like_clicks);
-                setStars((num/den).toString().substring(0,4).replace("NaN", "0"))
+                const value = (num/den).toString().substring(0,4).replace("NaN", "0");
+                setStars(value);
+                setStarIcons(starShading(num, den));
             }
         );
     };
@@ -179,7 +183,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                     <ListGroup.Item>
                         <Row className="co-row-wrapper">
                             <Col xs={6}>
-                                <div className="product-stars">{starShading(data)}</div>
+                                <div className="product-stars">{starIcons}</div>
                                 <div className="product-stars avg-star-count">{stars}</div>
                             </Col>
                             <Col xs={6}>
