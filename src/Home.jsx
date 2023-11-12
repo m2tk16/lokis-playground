@@ -48,7 +48,7 @@ const Home = () => {
                         vary, we believe in sharing our perspective to benefit others. Our mission is fulfilled 
                         if we can guide you to cost-effective choices or provide answers to your queries. 
                         The list of products will evolve, so we invite you to revisit for the latest 
-                        recommendations.  
+                        recommendations.   
                     </div>
                 </Col>
                 
