@@ -6,8 +6,9 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import ProductCardDetails from "./ProductCardDetails"
-import AMZNLogo from "./images/amzn-logo.png";
 import { InfoCircleFill } from 'react-bootstrap-icons';
+import { BsFillStarFill, BsStar } from "react-icons/bs";
+import { FaAmazon } from "react-icons/fa";
 
 interface ProductCardFaceProps {
     data: any,
@@ -30,6 +31,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
     const [img1, SetImg1] = useState(ImgUrlPt1.replace("{ASIN}", data.XS_asin));
     const [img2, SetImg2] = useState(ImgUrlPt2.replace("{ASIN}", data.XS_asin));
     const [specs, SetSpecs] = useState(data.XS_specs);
+    const [stars, setStars] = useState((data.total_stars/data.total_like_clicks).toString().substring(0,4).replace("NaN", "0"));
 
 
     const handleCardSwap = (index) => {
@@ -55,6 +57,33 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
         setSizeOption(target_value);
     }
 
+    const emptyStar = (value) => {
+       return <BsStar className="star-size" onClick={() => console.log(value)}/>
+    }
+
+    const fullStar = (value) => {
+        return <BsFillStarFill className="star-size" onClick={() => console.log(value)}/>
+     }
+
+    const starShading = (data) => {
+        const starValueDecimal = data.total_stars/data.total_like_clicks;
+
+        if (starValueDecimal < 1) {
+            return <>{emptyStar("1")}{emptyStar("2")}{emptyStar("3")}{emptyStar("4")}{emptyStar("5")}</>
+        } else if (starValueDecimal < 2) {
+            return <>{fullStar("1")}{emptyStar("2")}{emptyStar("3")}{emptyStar("4")}{emptyStar("5")}</>
+        } else if (starValueDecimal < 3) {
+            return <>{fullStar("1")}{fullStar("2")}{emptyStar("3")}{emptyStar("4")}{emptyStar("5")}</>
+        } else if (starValueDecimal < 4) {
+            return <>{fullStar("1")}{fullStar("2")}{fullStar("3")}{emptyStar("4")}{emptyStar("5")}</>
+        } else if (starValueDecimal < 5) {
+            return <>{fullStar("1")}{fullStar("2")}{fullStar("3")}{fullStar("4")}{emptyStar("5")}</>
+        } else if (starValueDecimal.toString() === 'NaN') {
+            return <>{emptyStar("1")}{emptyStar("2")}{emptyStar("3")}{emptyStar("4")}{emptyStar("5")}</>
+        } else {
+            return <>{fullStar("1")}{fullStar("2")}{fullStar("3")}{fullStar("4")}{fullStar("5")}</>
+        }
+    }
 
     const sizeComponent = () => {
         return (
@@ -121,10 +150,13 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
 
                     <ListGroup.Item>
                         <Row className="co-row-wrapper">
-                            <Col xs={12}>
+                            <Col xs={6}>
+                                <div className="product-stars">{starShading(data)}</div>
+                                <div className="product-stars avg-star-count">{stars}</div>
+                            </Col>
+                            <Col xs={6}>
                                 <a href={productUrl} target="_blank" rel="noreferrer">
-                                    <img className="co-logo" src={AMZNLogo} alt="amzn-logo" />
-                                    {"Amazon   " + price}
+                                    <div className="product-price"><FaAmazon className="amazon-icon"/><div className="price-spacer"></div>{price}</div>
                                 </a>
                             </Col>
                         </Row>

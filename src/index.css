@@ -100,8 +100,9 @@ code {
 }
 
 .co-logo {
-  width: 3.5em;
-  height:3.5em;
+  width:4em;
+  height:2em;
+  font-size:.6em;
 }
 
 .co-row-wrapper {
@@ -155,4 +156,31 @@ code {
 
 .home-column {
   padding-bottom:4vw;
+}
+.star-size {
+  font-size:1em;
+  color: #6096ba
+}
+
+.product-stars {
+  display: inline-block;
+}
+
+.avg-star-count {
+  font-size:.8em;
+  margin-left:1em;
+  font-weight: 600;
+}
+
+.product-price {
+  font-size:1em;
+}
+
+.price-spacer {
+  display: inline-block;
+  padding-right: .8em;
+}
+
+.amazon-icon {
+  color: orange;
 }
