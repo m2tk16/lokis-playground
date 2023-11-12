@@ -1,4 +1,4 @@
-import React,  { useState } from "react";
+import React,  { useState, useEffect } from "react";
 import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -27,6 +27,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
 
     const [cardFace, setCardFace] = useState(Array(totalItems).fill(true));
     const [sizeOption, setSizeOption] = useState("XS");
+    const [ipAddress, setIPAddress] = useState('')
     const [price, SetPrice] = useState(data.XS_amazon_price);
     const [productUrl, SetProductUrl] = useState(ProductUrl.replace("{ASIN}", data.XS_asin));
     const [img1, SetImg1] = useState(ImgUrlPt1.replace("{ASIN}", data.XS_asin));
@@ -116,12 +117,20 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
     };
 
 
+    useEffect(() => {
+      fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => setIPAddress(data.ip))
+        .catch(error => console.log(error))
+    }, []);
+
+
     const sizeComponent = () => {
         return (
             <ListGroup.Item>
                 <Form>
                     <Row>
-                        <Col xs={1}></Col>
+                        <Col xs={1}>{ipAddress}</Col>
                         {data.available_size.map((size) => (
                             <Col xs={2} key={size}>
                                 <Form.Check
