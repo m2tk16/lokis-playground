@@ -130,7 +130,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
             <ListGroup.Item>
                 <Form>
                     <Row>
-                        <Col xs={1}>{ipAddress}</Col>
+                        <Col xs={1}></Col>
                         {data.available_size.map((size) => (
                             <Col xs={2} key={size}>
                                 <Form.Check
@@ -157,7 +157,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                 <Col xs={12}>
                     {cardFace[index] ? (
                         <div className="image-wrapper">
-                            <a href={productUrl} target="_blank" rel="noreferrer">
+                            <a href={productUrl} target="_blank" rel="noopener noreferrer">
                                 <img alt="none" border="0" src={img1} />
                             </a>
                             <img src={img2} alt="" />
