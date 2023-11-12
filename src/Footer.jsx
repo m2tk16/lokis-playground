@@ -8,6 +8,7 @@ import { Envelope, Instagram } from 'react-bootstrap-icons';
 const Footer = () => {
     return (
         <>
+        <hr></hr> 
         <Row>
             <Col md={12} className="disclaimer-title">
                 Disclaimer
@@ -16,7 +17,6 @@ const Footer = () => {
         <Row>
             <Col xs={1}></Col>
             <Col xs={10} className="disclaimer-text">
-                <hr></hr> 
                 *This website participates in various affiliate programs and we may 
                 earn a commission if you click on certain links displayed on this site 
                 and make a purchase. We are legally obliged to inform you of our participation in these 

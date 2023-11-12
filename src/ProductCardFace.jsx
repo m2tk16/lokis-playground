@@ -6,8 +6,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import ProductCardDetails from "./ProductCardDetails"
-import { InfoCircleFill } from 'react-bootstrap-icons';
-import { BsFillStarFill, BsStar } from "react-icons/bs";
+import { BsFillStarFill, BsStar, BsPlusCircle } from "react-icons/bs";
 import { FaAmazon } from "react-icons/fa";
 
 interface ProductCardFaceProps {
@@ -171,7 +170,7 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                                 {data.product_title}
                             </Col>
                             <Col xs={2}>
-                                <InfoCircleFill size={24}  onClick={() => handleCardSwap(index)}/>
+                                <BsPlusCircle className="bs-plus-circle" size={24}  onClick={() => handleCardSwap(index)}/>
                             </Col>
                         </Row>
                     </ListGroup.Item>

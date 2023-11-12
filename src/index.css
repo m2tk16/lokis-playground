@@ -66,8 +66,8 @@ code {
 
 .product-card{
   border: 1px solid red;
-  margin:4vw;
-  padding:2vw;
+  margin:1em;
+  padding:1em;
   box-shadow: 0 0 1vw #274c77;
 }
 
@@ -95,6 +95,25 @@ code {
   box-shadow: 0 0 1vw #274c77; 
 }
 
+.loki-maine {
+  width: 8em;
+  height: 12em;
+  border-radius:1em;
+  text-align: center;
+  box-shadow: 0 0 1vw #274c77;
+}
+
+.loki-hotel {
+  width: 8em;
+  height: 12em;
+  border-radius:1em;
+  margin-left: 1em;
+  margin-top: 1.75em;
+  margin-bottom: 1em;
+  text-align: center;
+  box-shadow: 0 0 1vw #274c77;
+}
+
 .co-logo-name-wrapper {
   display: inline-block;
 }
@@ -118,6 +137,12 @@ code {
   margin-left: 4vw;
   margin-right: 4vw;
   margin-bottom: 1vw;
+}
+
+.page-about {
+  font-size: .8em;
+  margin-left: 4vw;
+  margin-bottom: 4vw;
 }
 
 .product-card-title {
@@ -183,4 +208,22 @@ code {
 
 .amazon-icon {
   color: orange;
+}
+
+.bs-plus-circle {
+  color: #6096ba;
+}
+
+.page-header {
+  text-align: center;
+  padding-bottom: 1em;
+  font-weight: 600;
+}
+
+.page-about-row {
+  display: inline-block;
+}
+
+.page-row-spacer {
+  padding-top:1em;
 }
