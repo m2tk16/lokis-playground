@@ -4,6 +4,9 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ProductCardFace from "./ProductCardFace"
 
+
+
+
 const Health = () => {
     const [data, setData] = useState([])
 
@@ -24,7 +27,7 @@ const Health = () => {
         <Row>
             {data.map((item, index) => (
                 <Col key={index} sm={4}>
-                    <ProductCardFace data={data[index]} index={index} totalItems={data.length}/>
+                    <ProductCardFace data={data[index]} index={index} totalItems={data.length} page="health"/>
                 </Col>
             ))}
         </Row>

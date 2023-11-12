@@ -21,8 +21,8 @@ function App() {
             <Route path='/' exact element={<Home />} />
             <Route path='/food' element={<Food />} />
             <Route path='/toys' element={<Toys />} />
-            <Route path='/health' element={<Health />} />
-            <Route path='/accessories' element={<Accessories />} />
+            <Route path='/health' element={<Health page="health"/>} />
+            <Route path='/accessories' element={<Accessories page="health"/>} />
           </Routes>
           <Footer />
         </Router>

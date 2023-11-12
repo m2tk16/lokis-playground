@@ -13,15 +13,17 @@ import { FaAmazon } from "react-icons/fa";
 interface ProductCardFaceProps {
     data: any,
     totalItems: integer,
-    index: integer
+    index: integer,
+    page: page
   }
   
 const ProductCardFace = (props: ProductCardFaceProps) => {
-    const { data, totalItems, index } = props;
+    const { data, totalItems, index, page } = props;
 
     const ImgUrlPt1 = "//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={ASIN}&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=lokisplaygrou-20&language=en_US"
     const ImgUrlPt2 = "https://ir-na.amazon-adsystem.com/e/ir?t=lokisplaygrou-20&language=en_US&l=li2&o=1&a={ASIN}"
     const ProductUrl = "https://www.amazon.com/gp/product/{ASIN}?ie=UTF8&th=1&linkCode=li2&tag=lokisplaygrou-20&linkId=d38999b47cca2544ee4e72e4eb778e3b&language=en_US&ref_=as_li_ss_il"
+    const productStarsURL = "https://ig1lg6ajuj.execute-api.us-east-1.amazonaws.com/dev/LokisPlaygronudUpateProductStars";
 
 
     const [cardFace, setCardFace] = useState(Array(totalItems).fill(true));
@@ -58,11 +60,11 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
     }
 
     const emptyStar = (value) => {
-       return <BsStar className="star-size" onClick={() => console.log(value)}/>
+       return <BsStar className="star-size" onClick={() => UpdateProductStars(value)}/>
     }
 
     const fullStar = (value) => {
-        return <BsFillStarFill className="star-size" onClick={() => console.log(value)}/>
+        return <BsFillStarFill className="star-size" onClick={() => UpdateProductStars(value)}/>
      }
 
     const starShading = (data) => {
@@ -84,6 +86,32 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
             return <>{fullStar("1")}{fullStar("2")}{fullStar("3")}{fullStar("4")}{fullStar("5")}</>
         }
     }
+
+    const UpdateProductStars = (value) => {
+        const header = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "id": data.product_id, 
+                "category": page,
+                "total_stars": value
+            })
+        }
+        console.log(header)
+
+        fetch(productStarsURL, header)
+            .then(response => response.json())
+            .then(response => (JSON.parse(response.body)))
+            .then(response => {
+                const num = parseFloat(response.total_stars);
+                const den = parseFloat(response.total_like_clicks);
+                setStars((num/den).toString().substring(0,4).replace("NaN", "0"))
+            }
+        );
+    };
+
 
     const sizeComponent = () => {
         return (
@@ -156,7 +184,9 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                             </Col>
                             <Col xs={6}>
                                 <a href={productUrl} target="_blank" rel="noreferrer">
-                                    <div className="product-price"><FaAmazon className="amazon-icon"/><div className="price-spacer"></div>{price}</div>
+                                    <div className="product-price"><FaAmazon className="amazon-icon"/>
+                                        <div className="price-spacer"></div>{price}
+                                    </div>
                                 </a>
                             </Col>
                         </Row>
