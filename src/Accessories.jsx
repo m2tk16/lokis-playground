@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Amplify, API } from 'aws-amplify';
 import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -7,18 +8,28 @@ import ProductCardFace from "./ProductCardFace"
 
 const Accessories = () => {
     const [data, setData] = useState([])
+    const apiName = "LokisPlaygroundAccessoryProductsAPI";
+
+    Amplify.configure({
+    API: {
+        endpoints: [
+        {
+            name: apiName,
+            endpoint: "https://6k2szi4h2b.execute-api.us-east-1.amazonaws.com/staging",
+            path: "/"
+        },
+        ],
+    },
+    });
 
     useEffect(() => {
-        const GetProducts = async () => {
-            const healthProductsURL = "https://s5m9p74ps0.execute-api.us-east-1.amazonaws.com/default/LokisPlaygroundAccessoryProductsLambda"
-            await fetch(healthProductsURL)
-                .then(response => response.json())
-                .then(response => {
-                    const d = JSON.parse(response.body)
-                    setData(d)
-                });
-            };
-            GetProducts()
+        const GetFoodData = async () => {
+            return API.get(apiName, "/", {headers: {}}).then((response) => {
+                setData(response);
+            
+            });
+        }
+        GetFoodData();
     },[]);
 
     return (

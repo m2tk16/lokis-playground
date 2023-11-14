@@ -2,10 +2,10 @@ import json
 import boto3
 
 
-class HealthProducts:
+class AccessoryProducts:
     def __init__(self):
         self.dynamodb = boto3.resource('dynamodb')
-        self.table = self.dynamodb.Table("lokis-playground-health-products")
+        self.table = self.dynamodb.Table("lokis-playground-health-accessories")
         self.data = self.get_data()
        
     def get_data(self):
@@ -61,7 +61,7 @@ def parse_data(products):
 
 def handler(event, context):
 
-    products = HealthProducts()
+    products = AccessoryProducts()
     health_products = parse_data(products)
     
     return {

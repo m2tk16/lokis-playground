@@ -7,13 +7,12 @@ import Row from 'react-bootstrap/Row';
 
 
 const Food = () => {
-   
     return (
         <>
         <Row>
             <Col md={12}>
                 <div className="home-title">
-                    Food
+                  Food
                 </div>
             </Col>
         </Row>

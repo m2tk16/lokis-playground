@@ -1,5 +1,19 @@
 {
   "api": {
+    "LokisPlaygroundAccessoryProductsAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "LokisPlaygroundAccessoryProducts"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    },
     "LokisPlaygroundHealthProductsAPI": {
       "dependsOn": [
         {
@@ -42,6 +56,11 @@
     }
   },
   "function": {
+    "LokisPlaygroundAccessoryProducts": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "LokisPlaygroundHealthProductsLambda": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -49,6 +68,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_LokisPlaygroundAccessoryProducts_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LokisPlaygroundAccessoryProducts"
+        }
+      ]
+    },
+    "AMPLIFY_function_LokisPlaygroundAccessoryProducts_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LokisPlaygroundAccessoryProducts"
+        }
+      ]
+    },
     "AMPLIFY_function_LokisPlaygroundHealthProductsLambda_deploymentBucketName": {
       "usedBy": [
         {

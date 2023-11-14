@@ -16,14 +16,19 @@
       "function": {
         "LokisPlaygroundHealthProductsLambda": {
           "deploymentBucketName": "amplify-amplify5d4aca8d8e4e4-staging-160319-deployment",
-          "s3Key": "amplify-builds/LokisPlaygroundHealthProductsLambda-6f674d7871364646776e-build.zip"
+          "s3Key": "amplify-builds/LokisPlaygroundHealthProductsLambda-6d686c514542576f4669-build.zip"
+        },
+        "LokisPlaygroundAccessoryProducts": {
+          "deploymentBucketName": "amplify-amplify5d4aca8d8e4e4-staging-160319-deployment",
+          "s3Key": "amplify-builds/LokisPlaygroundAccessoryProducts-4a4f33716e6e6952504f-build.zip"
         }
       },
       "auth": {
         "lokisplayground": {}
       },
       "api": {
-        "LokisPlaygroundHealthProductsAPI": {}
+        "LokisPlaygroundHealthProductsAPI": {},
+        "LokisPlaygroundAccessoryProductsAPI": {}
       }
     }
   }
