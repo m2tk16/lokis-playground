@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Amplify, API } from 'aws-amplify';
 import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -10,18 +11,28 @@ import LokiHotel from "./images/loki-hotel.png";
 
 const Health = () => {
     const [data, setData] = useState([])
-
+    const apiName = "LokisPlaygroundHealthProductsAPI";
+    
+    Amplify.configure({
+      API: {
+        endpoints: [
+          {
+            name: apiName,
+            endpoint: "https://hc7bhdzjlj.execute-api.us-east-1.amazonaws.com/staging",
+            path: "/"
+          },
+        ],
+      },
+    });
+    
     useEffect(() => {
-        const GetProducts = async () => {
-            const healthProductsURL = "https://ufcmae18ra.execute-api.us-east-1.amazonaws.com/default/LokisPlaygroundHealthProductsLambda"
-            await fetch(healthProductsURL)
-                .then(response => response.json())
-                .then(response => {
-                    const d = JSON.parse(response.body)
-                    setData(d)
-                });
-            };
-            GetProducts()
+        const GetHealthData = async () => {
+            return API.get(apiName, "/", {headers: {}}).then((response) => {
+                setData(response);
+            
+            });
+        }
+        GetHealthData();
     },[]);
 
     return (

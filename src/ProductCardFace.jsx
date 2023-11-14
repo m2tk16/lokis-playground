@@ -5,9 +5,9 @@ import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
-import ProductCardDetails from "./ProductCardDetails"
 import { BsFillStarFill, BsStar, BsPlusCircle } from "react-icons/bs";
 import { FaAmazon } from "react-icons/fa";
+import ProductCardDetails from "./ProductCardDetails"
 
 interface ProductCardFaceProps {
     data: any,
