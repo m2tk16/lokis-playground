@@ -1,0 +1,30 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify5d4aca8d8e4e4-staging-160319-authRole",
+      "UnauthRoleArn": "arn:aws:iam::178450627339:role/amplify-amplify5d4aca8d8e4e4-staging-160319-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::178450627339:role/amplify-amplify5d4aca8d8e4e4-staging-160319-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify5d4aca8d8e4e4-staging-160319-deployment",
+      "UnauthRoleName": "amplify-amplify5d4aca8d8e4e4-staging-160319-unauthRole",
+      "StackName": "amplify-amplify5d4aca8d8e4e4-staging-160319",
+      "StackId": "arn:aws:cloudformation:us-east-1:178450627339:stack/amplify-amplify5d4aca8d8e4e4-staging-160319/ff595ca0-8174-11ee-a880-0af521f683f5",
+      "AmplifyAppId": "d29bhuievpdzaj",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-amplify5d4aca8d8e4e4-staging-160319-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "function": {
+        "LokisPlaygroundHealthProductsLambda": {
+          "deploymentBucketName": "amplify-amplify5d4aca8d8e4e4-staging-160319-deployment",
+          "s3Key": "amplify-builds/LokisPlaygroundHealthProductsLambda-6f674d7871364646776e-build.zip"
+        }
+      },
+      "auth": {
+        "lokisplayground": {}
+      },
+      "api": {
+        "LokisPlaygroundHealthProductsAPI": {}
+      }
+    }
+  }
+}

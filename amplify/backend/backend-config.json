@@ -1,0 +1,69 @@
+{
+  "api": {
+    "LokisPlaygroundHealthProductsAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "LokisPlaygroundHealthProductsLambda"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "lokisplayground": {
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "managed"
+    }
+  },
+  "function": {
+    "LokisPlaygroundHealthProductsLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_LokisPlaygroundHealthProductsLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LokisPlaygroundHealthProductsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_LokisPlaygroundHealthProductsLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LokisPlaygroundHealthProductsLambda"
+        }
+      ]
+    }
+  }
+}
