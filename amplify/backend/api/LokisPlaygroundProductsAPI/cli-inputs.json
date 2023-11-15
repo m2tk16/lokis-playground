@@ -3,7 +3,7 @@
   "paths": {
     "/": {
       "name": "/",
-      "lambdaFunction": "LokisPlaygroundHealthProductsLambda",
+      "lambdaFunction": "LokisPlaygroundProductsLambda",
       "permissions": {
         "setting": "protected",
         "auth": [

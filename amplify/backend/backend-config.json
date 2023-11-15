@@ -1,6 +1,6 @@
 {
   "api": {
-    "LokisPlaygroundAccessoryProductsAPI": {
+    "LokisPlaygroundProductsAPI": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,21 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "LokisPlaygroundAccessoryProducts"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "API Gateway"
-    },
-    "LokisPlaygroundHealthProductsAPI": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "LokisPlaygroundHealthProductsLambda"
+          "resourceName": "LokisPlaygroundProductsLambda"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -56,47 +42,26 @@
     }
   },
   "function": {
-    "LokisPlaygroundAccessoryProducts": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "LokisPlaygroundHealthProductsLambda": {
+    "LokisPlaygroundProductsLambda": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_LokisPlaygroundAccessoryProducts_deploymentBucketName": {
+    "AMPLIFY_function_LokisPlaygroundProductsLambda_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "LokisPlaygroundAccessoryProducts"
+          "resourceName": "LokisPlaygroundProductsLambda"
         }
       ]
     },
-    "AMPLIFY_function_LokisPlaygroundAccessoryProducts_s3Key": {
+    "AMPLIFY_function_LokisPlaygroundProductsLambda_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "LokisPlaygroundAccessoryProducts"
-        }
-      ]
-    },
-    "AMPLIFY_function_LokisPlaygroundHealthProductsLambda_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "LokisPlaygroundHealthProductsLambda"
-        }
-      ]
-    },
-    "AMPLIFY_function_LokisPlaygroundHealthProductsLambda_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "LokisPlaygroundHealthProductsLambda"
+          "resourceName": "LokisPlaygroundProductsLambda"
         }
       ]
     }

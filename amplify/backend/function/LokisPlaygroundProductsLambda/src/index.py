@@ -2,18 +2,19 @@ import json
 import boto3
 
 
-class HealthProducts:
-    def __init__(self):
+class Products:
+    def __init__(self, event):
         self.dynamodb = boto3.resource('dynamodb')
-        self.table = self.dynamodb.Table("lokis-playground-health-products")
+        self.table = self.dynamodb.Table("LokisPlaygroundProducts")
+        self.category = event["queryStringParameters"]["category"]
         self.data = self.get_data()
-       
+        
+        
     def get_data(self):
-        try:
-            data = self.table.scan()
-            return data
-        except Exception as e:
-            return []
+        response = self.table.scan(
+            FilterExpression=boto3.dynamodb.conditions.Attr('category').eq(self.category)
+        )
+        return response
 
 
 def get_size(item):
@@ -61,8 +62,8 @@ def parse_data(products):
 
 def handler(event, context):
 
-    products = HealthProducts()
-    health_products = parse_data(products)
+    products = Products(event)
+    product_json = parse_data(products)
     
     return {
         'statusCode': 200,
@@ -70,5 +71,5 @@ def handler(event, context):
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*'
         },
-        'body': json.dumps(health_products)
+        'body': json.dumps(product_json)
     }

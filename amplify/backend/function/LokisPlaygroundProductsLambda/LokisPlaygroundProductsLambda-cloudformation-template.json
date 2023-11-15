@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "LokisPlaygroundAccessoryProducts",
+            "LokisPlaygroundProductsLambda",
             {
               "Fn::Join": [
                 "",
                 [
-                  "LokisPlaygroundAccessoryProducts",
+                  "LokisPlaygroundProductsLambda",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "lokisplaygroundLambdaRole78cde19e",
+            "lokisplaygroundLambdaRolec96f4ebb",
             {
               "Fn::Join": [
                 "",
                 [
-                  "lokisplaygroundLambdaRole78cde19e",
+                  "lokisplaygroundLambdaRolec96f4ebb",
                   "-",
                   {
                     "Ref": "env"

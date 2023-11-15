@@ -1,11 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "LokisPlaygroundAccessoryProductsAPI": {
-      "ApiId": "string",
-      "ApiName": "string",
-      "RootUrl": "string"
-    },
-    "LokisPlaygroundHealthProductsAPI": {
+    "LokisPlaygroundProductsAPI": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
@@ -23,14 +18,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "LokisPlaygroundAccessoryProducts": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "LokisPlaygroundHealthProductsLambda": {
+    "LokisPlaygroundProductsLambda": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
