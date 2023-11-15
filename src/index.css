@@ -82,16 +82,14 @@ code {
   width: 8em;
   height: 14em;
   border-radius:1em;
-  margin-bottom: 4vw;
   box-shadow: 0 0 1vw #274c77;
-  margin-right:2vw;
+  margin-right:1em;
 }
 
 .this-is-loki {
   width: 9em;
   height: 14em;
   border-radius:1em;
-  margin-bottom: 4vw;
   box-shadow: 0 0 1vw #274c77; 
 }
 
@@ -108,7 +106,6 @@ code {
   height: 12em;
   border-radius:1em;
   margin-left: 1em;
-  margin-top: 1.75em;
   margin-bottom: 1em;
   text-align: center;
   box-shadow: 0 0 1vw #274c77;
@@ -140,9 +137,9 @@ code {
 }
 
 .page-about {
-  font-size: .8em;
-  margin-left: 4vw;
-  margin-bottom: 4vw;
+  font-size: 1em;
+  text-align: center;
+  padding:1em;
 }
 
 .product-card-title {
@@ -153,6 +150,7 @@ code {
 
 .list-group-flush {
   margin-left:1vw;
+  margin-top:.8vw;
 }
 
 .image-divider{
@@ -216,7 +214,7 @@ code {
 
 .page-header {
   text-align: center;
-  padding-bottom: 1em;
+  padding-bottom: 2em;
   font-weight: 600;
 }
 

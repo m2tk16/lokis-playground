@@ -166,45 +166,42 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                         <ProductCardDetails data={data} specs={specs}/>
                     )}
                 </Col>
-            </Row>
-            <Row>
-                <ListGroup className="list-group-flush">
-                    <ListGroup.Item>
-                        <Row>
-                            <hr className="image-divider"></hr>
-                            <Col 
-                                xs={10} 
-                                className="product-card-title"
-                            >
-                                {data.product_title}
-                            </Col>
-                            <Col xs={2}>
-                                <BsPlusCircle className="bs-plus-circle" size={24}  onClick={() => handleCardSwap(index)}/>
-                            </Col>
-                        </Row>
-                    </ListGroup.Item>
-                    
-                    {data.has_size === 'Y' &&
-                        sizeComponent()
-                    }
+        </Row>
+            <ListGroup className="list-group-flush">
+                <ListGroup.Item>
+                    <Row>
+                        <Col 
+                            xs={10} 
+                            className="product-card-title"
+                        >
+                            {data.product_title}
+                        </Col>
+                        <Col xs={2}>
+                            <BsPlusCircle className="bs-plus-circle" size={24}  onClick={() => handleCardSwap(index)}/>
+                        </Col>
+                    </Row>
+                </ListGroup.Item>
+                
+                {data.has_size === 'Y' &&
+                    sizeComponent()
+                }
 
-                    <ListGroup.Item>
-                        <Row className="co-row-wrapper">
-                            <Col xs={6}>
-                                <div className="product-stars">{starIcons}</div>
-                                <div className="product-stars avg-star-count">{stars}</div>
-                            </Col>
-                            <Col xs={6}>
-                                <a href={productUrl} target="_blank" rel="noreferrer">
-                                    <div className="product-price"><FaAmazon className="amazon-icon"/>
-                                        <div className="price-spacer"></div>{price}
-                                    </div>
-                                </a>
-                            </Col>
-                        </Row>
-                    </ListGroup.Item>
-                </ListGroup>
-            </Row>
+                <ListGroup.Item>
+                    <Row className="co-row-wrapper">
+                        <Col xs={6}>
+                            <div className="product-stars">{starIcons}</div>
+                            <div className="product-stars avg-star-count">{stars}</div>
+                        </Col>
+                        <Col xs={6}>
+                            <a href={productUrl} target="_blank" rel="noreferrer">
+                                <div className="product-price"><FaAmazon className="amazon-icon"/>
+                                    <div className="price-spacer"></div>{price}
+                                </div>
+                            </a>
+                        </Col>
+                    </Row>
+                </ListGroup.Item>
+            </ListGroup>
         </Card>
     )
 }

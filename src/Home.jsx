@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ThisIsLoki from "./images/loki-park.png";
@@ -7,7 +8,7 @@ import LokiSilly from "./images/loki-silly.png";
 
 const Home = () => {
     return (
-        <div className="home-body">
+        <Container className="home-body">
             <Row>
                 <Col md={12}>
                     <h1>
@@ -53,7 +54,7 @@ const Home = () => {
                 </Col>
                 
             </Row>
-        </div>
+        </Container>
     )
 }
 

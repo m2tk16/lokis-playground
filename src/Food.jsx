@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
@@ -8,15 +9,15 @@ import Row from 'react-bootstrap/Row';
 
 const Food = () => {
     return (
-        <>
-        <Row>
-            <Col md={12}>
-                <div className="home-title">
-                  Food
-                </div>
-            </Col>
-        </Row>
-        </>
+        <Container>
+            <Row>
+                <Col md={12}>
+                    <div className="home-title">
+                    Food
+                    </div>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
