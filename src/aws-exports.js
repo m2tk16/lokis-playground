@@ -26,13 +26,8 @@ const awsmobile = {
     ],
     "aws_cloud_logic_custom": [
         {
-            "name": "LokisPlaygroundHealthProductsAPI",
-            "endpoint": "https://hc7bhdzjlj.execute-api.us-east-1.amazonaws.com/staging",
-            "region": "us-east-1"
-        },
-        {
-            "name": "LokisPlaygroundAccessoryProductsAPI",
-            "endpoint": "https://6k2szi4h2b.execute-api.us-east-1.amazonaws.com/staging",
+            "name": "LokisPlaygroundProductsAPI",
+            "endpoint": "https://8n0kkaiqz4.execute-api.us-east-1.amazonaws.com/staging",
             "region": "us-east-1"
         }
     ]

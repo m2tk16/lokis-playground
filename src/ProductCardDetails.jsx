@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-
+import { BsFillStarFill, BsStar } from "react-icons/bs";
 
 interface ProductCardDetailsProps {
     data: any,
@@ -17,6 +17,25 @@ const ProductCardDetails = (props: ProductCardDetailsProps) => {
     const pros = data.review.pros;
     const cons = data.review.cons;
     const about = data.about;
+   
+
+    const starShading = (value) => {
+        if (value < 1) {
+            return <><BsStar/><BsStar/><BsStar/><BsStar/><BsStar/></>
+        } else if (value < 2) {
+            return <><BsFillStarFill/><BsStar/><BsStar/><BsStar/><BsStar/></>
+        } else if (value < 3) {
+            return <><BsFillStarFill/><BsFillStarFill/><BsStar/><BsStar/><BsStar/></>
+        } else if (value < 4) {
+            return <><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsStar/><BsStar/></>
+        } else if (value < 5) {
+            return <><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsStar/></>
+        } else if (value.toString() === 'NaN') {
+            return <><BsStar/><BsStar/><BsStar/><BsStar/><BsStar/></>
+        } else {
+            return <><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/><BsFillStarFill/></>
+        }
+    }
 
     return (
         <Tabs
@@ -67,6 +86,14 @@ const ProductCardDetails = (props: ProductCardDetailsProps) => {
                         </ul>
                     </Col>
                 </Row>
+                {data.toughness >= 0 &&
+                <Row>
+                    <hr></hr>
+                    <Col className="durabiilty-colunn" xs={12}>
+                        Durability: {starShading(data.toughness)}
+                    </Col>
+                </Row>
+                }
             </Tab>
         </Tabs>
     )

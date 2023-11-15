@@ -6,31 +6,41 @@ import Row from 'react-bootstrap/Row';
 import ProductCardFace from "./ProductCardFace"
 
 
-const Accessories = () => {
+interface AccessoriesProps {
+    endpoint: any
+}
+
+
+const Accessories = (props: AccessoriesProps) => {
+    const { endpoint } = props;
     const [data, setData] = useState([])
-    const apiName = "LokisPlaygroundAccessoryProductsAPI";
 
     Amplify.configure({
-    API: {
-        endpoints: [
-        {
-            name: apiName,
-            endpoint: "https://6k2szi4h2b.execute-api.us-east-1.amazonaws.com/staging",
-            path: "/"
+        API: {
+            endpoints: [
+                {
+                    name: endpoint.api,
+                    endpoint: endpoint.url,
+                    path: "/"
+                },
+            ],
         },
-        ],
-    },
     });
 
     useEffect(() => {
-        const GetFoodData = async () => {
-            return API.get(apiName, "/", {headers: {}}).then((response) => {
+        const GetAccessoriesData = async () => {
+            const myInit = {
+                headers: {},
+                response: false,
+                queryStringParameters: { category: 'accessory' }
+            };
+            return API.get(endpoint.api, "/", myInit).then((response) => {
                 setData(response);
             
             });
         }
-        GetFoodData();
-    },[]);
+        GetAccessoriesData();
+    },[endpoint]);
 
     return (
         <Row>

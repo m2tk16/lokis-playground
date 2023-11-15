@@ -8,32 +8,41 @@ import LokiMaine from "./images/loki-maine.png";
 import LokiHotel from "./images/loki-hotel.png";
 
 
+interface HealthProps {
+    endpoint: any
+}
 
-const Health = () => {
+
+const Health = (props: HealthProps) => {
+    const { endpoint } = props;
     const [data, setData] = useState([])
-    const apiName = "LokisPlaygroundHealthProductsAPI";
-    
+
     Amplify.configure({
-      API: {
-        endpoints: [
-          {
-            name: apiName,
-            endpoint: "https://hc7bhdzjlj.execute-api.us-east-1.amazonaws.com/staging",
-            path: "/"
-          },
-        ],
-      },
+        API: {
+            endpoints: [
+                {
+                    name: endpoint.api,
+                    endpoint: endpoint.url,
+                    path: "/"
+                },
+            ],
+        },
     });
-    
+
     useEffect(() => {
         const GetHealthData = async () => {
-            return API.get(apiName, "/", {headers: {}}).then((response) => {
+            const myInit = {
+                headers: {},
+                response: false,
+                queryStringParameters: { category: 'health' }
+            };
+            return API.get(endpoint.api, "/", myInit).then((response) => {
                 setData(response);
             
             });
         }
         GetHealthData();
-    },[]);
+    },[endpoint]);
 
     return (
         <>
