@@ -13,6 +13,20 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
+    },
+    "LokisPlaygroundUpdateProductStarsAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "LokisPlaygroundUpdateProductStarsLambda"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
     }
   },
   "auth": {
@@ -46,6 +60,11 @@
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
+    },
+    "LokisPlaygroundUpdateProductStarsLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
     }
   },
   "parameters": {
@@ -62,6 +81,22 @@
         {
           "category": "function",
           "resourceName": "LokisPlaygroundProductsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_LokisPlaygroundUpdateProductStarsLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LokisPlaygroundUpdateProductStarsLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_LokisPlaygroundUpdateProductStarsLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LokisPlaygroundUpdateProductStarsLambda"
         }
       ]
     }

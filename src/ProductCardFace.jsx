@@ -1,4 +1,5 @@
-import React,  { useState, useEffect } from "react";
+import React,  { useState } from "react";
+import { Amplify, API } from 'aws-amplify';
 import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -9,32 +10,31 @@ import { BsFillStarFill, BsStar, BsPlusCircle } from "react-icons/bs";
 import { FaAmazon } from "react-icons/fa";
 import ProductCardDetails from "./ProductCardDetails"
 
+
 interface ProductCardFaceProps {
     data: any,
     totalItems: integer,
     index: integer,
-    page: page
+    ip: string
   }
   
 const ProductCardFace = (props: ProductCardFaceProps) => {
-    const { data, totalItems, index, page } = props;
-
+    const { data, totalItems, index, ip } = props;
     const ImgUrlPt1 = "//ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN={ASIN}&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=lokisplaygrou-20&language=en_US"
     const ImgUrlPt2 = "https://ir-na.amazon-adsystem.com/e/ir?t=lokisplaygrou-20&language=en_US&l=li2&o=1&a={ASIN}"
     const ProductUrl = "https://www.amazon.com/gp/product/{ASIN}?ie=UTF8&th=1&linkCode=li2&tag=lokisplaygrou-20&linkId=d38999b47cca2544ee4e72e4eb778e3b&language=en_US&ref_=as_li_ss_il"
-    const productStarsURL = "https://ig1lg6ajuj.execute-api.us-east-1.amazonaws.com/dev/LokisPlaygronudUpateProductStars";
+    const productStarsURL = "https://8b9kn00gge.execute-api.us-east-1.amazonaws.com/staging/";
 
 
     const [cardFace, setCardFace] = useState(Array(totalItems).fill(true));
     const [sizeOption, setSizeOption] = useState("XS");
-    const [ipAddress, setIPAddress] = useState('')
     const [price, SetPrice] = useState(data.XS_amazon_price);
     const [productUrl, SetProductUrl] = useState(ProductUrl.replace("{ASIN}", data.XS_asin));
     const [img1, SetImg1] = useState(ImgUrlPt1.replace("{ASIN}", data.XS_asin));
     const [img2, SetImg2] = useState(ImgUrlPt2.replace("{ASIN}", data.XS_asin));
     const [specs, SetSpecs] = useState(data.XS_specs);
     const [stars, setStars] = useState((data.total_stars/data.total_like_clicks).toString().substring(0,4).replace("NaN", "0"));
-    
+
 
 
     const handleCardSwap = (index) => {
@@ -89,42 +89,40 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
     }
     const [starIcons, setStarIcons] = useState(starShading(data.total_stars, data.total_like_clicks))
 
-    const UpdateProductStars = (value) => {
-        const header = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
+
+    const UpdateProductStars = async (value) => {  
+        Amplify.configure({
+            API: {
+                endpoints: [
+                    {
+                        name: "LokisPlaygroundUpdateProductStarsAPI",
+                        endpoint: productStarsURL,
+                        path: "/"
+                    },
+                ],
             },
-            body: JSON.stringify({
-                "id": data.product_id, 
-                "category": page,
-                "total_stars": value
-            })
-        }
-        console.log(header)
+        });
 
-        fetch(productStarsURL, header)
-            .then(response => response.json())
-            .then(response => (JSON.parse(response.body)))
-            .then(response => {
-                const num = parseFloat(response.total_stars);
-                const den = parseFloat(response.total_like_clicks);
-                const value = (num/den).toString().substring(0,4).replace("NaN", "0");
-                setStars(value);
-                setStarIcons(starShading(num, den));
+        const myInit = {
+            headers: {},
+            response: false,
+            queryStringParameters: { 
+                id: data.product_id,
+                ip: ip,
+                total_stars: value
             }
-        );
+        };
+        return API.get("LokisPlaygroundUpdateProductStarsAPI", "/", myInit).then((response) => {
+            const num = parseFloat(response.total_stars);
+            const den = parseFloat(response.total_like_clicks);
+ 
+            const value = (num/den).toString().substring(0,4).replace("NaN", "0");
+            setStars(value);
+            setStarIcons(starShading(num, den));
+        });
     };
-
-
-    useEffect(() => {
-      fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => setIPAddress(data.ip))
-        .catch(error => console.log(error))
-    }, []);
-
-
+       
+    
     const sizeComponent = () => {
         return (
             <ListGroup.Item>
@@ -152,7 +150,6 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
 
     return (
         <Card className="product-card" key={data.details+index}>
-
             <Row>
                 <Col xs={12}>
                     {cardFace[index] ? (
@@ -181,11 +178,6 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                         </Col>
                     </Row>
                 </ListGroup.Item>
-                
-                {data.has_size === 'Y' &&
-                    sizeComponent()
-                }
-
                 <ListGroup.Item>
                     <Row className="co-row-wrapper">
                         <Col xs={6}>
@@ -199,6 +191,9 @@ const ProductCardFace = (props: ProductCardFaceProps) => {
                                 </div>
                             </a>
                         </Col>
+                        {data.has_size === 'Y' &&
+                            sizeComponent()
+                        }
                     </Row>
                 </ListGroup.Item>
             </ListGroup>

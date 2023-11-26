@@ -19,7 +19,6 @@ function NavBar() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto nav-link">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/food">Food</Nav.Link>
             <Nav.Link href="/health">Health</Nav.Link>
             <Nav.Link href="/toys">Toys</Nav.Link>
             <Nav.Link href="/accessories">Accessories</Nav.Link>

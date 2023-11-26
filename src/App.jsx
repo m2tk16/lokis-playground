@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
@@ -13,21 +13,31 @@ import Footer from "./Footer";
 
 
 function App() {
-  const [endpoint, setEndPoint] = useState({
-    url: "https://8n0kkaiqz4.execute-api.us-east-1.amazonaws.com/staging/",
-    api: "LokisPlaygroundProductsAPI"
-  })
+  const [endpoint, setEndPoint] = useState({})
+
+  useEffect(() => {
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        setEndPoint({
+          url: "https://8n0kkaiqz4.execute-api.us-east-1.amazonaws.com/staging/",
+          api: "LokisPlaygroundProductsAPI",
+          ip: data.ip
+        })
+    })
+  }, []);
+  
 
   return (
     <div className="body">
         <Router>
           <NavBar />
           <Routes>
-            <Route path='/' exact element={<Home endpoint={endpoint}/>} />
-            <Route path='/food' element={<Food page="food" endpoint={endpoint}/>} />
-            <Route path='/toys' element={<Toys page="toys" endpoint={endpoint}/>} />
-            <Route path='/health' element={<Health page="health" endpoint={endpoint}/>} />
-            <Route path='/accessories' element={<Accessories page="accessories" endpoint={endpoint}/>} />
+            <Route path='/' exact element={<Home />} />
+            <Route path='/food' element={<Food endpoint={endpoint}/>} />
+            <Route path='/toys' element={<Toys endpoint={endpoint}/>} />
+            <Route path='/health' element={<Health endpoint={endpoint}/>} />
+            <Route path='/accessories' element={<Accessories endpoint={endpoint}/>} />
           </Routes>
           <Footer />
         </Router>

@@ -17,20 +17,19 @@ const Toys = (props: ToyProps) => {
     const [data, setData] = useState([])
 
 
-    Amplify.configure({
-        API: {
-            endpoints: [
-                {
-                    name: endpoint.api,
-                    endpoint: endpoint.url,
-                    path: "/"
-                },
-            ],
-        },
-    });
-
     useEffect(() => {
         const GetToyData = async () => {
+            Amplify.configure({
+                API: {
+                    endpoints: [
+                        {
+                            name: endpoint.api,
+                            endpoint: endpoint.url,
+                            path: "/"
+                        },
+                    ],
+                },
+            });
             const myInit = {
                 headers: {},
                 response: false,
@@ -50,7 +49,11 @@ const Toys = (props: ToyProps) => {
             <Row>
                 {data.map((item, index) => (
                     <Col key={index} sm={4}>
-                        <ProductCardFace data={data[index]} index={index} totalItems={data.length} page="toys"/>
+                        <ProductCardFace 
+                            data={data[index]} 
+                            index={index}
+                            totalItems={data.length} 
+                            ip={endpoint.ip}                        />
                     </Col>
                 ))}
             </Row>

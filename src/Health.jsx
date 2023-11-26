@@ -18,20 +18,19 @@ const Health = (props: HealthProps) => {
     const { endpoint } = props;
     const [data, setData] = useState([])
 
-    Amplify.configure({
-        API: {
-            endpoints: [
-                {
-                    name: endpoint.api,
-                    endpoint: endpoint.url,
-                    path: "/"
-                },
-            ],
-        },
-    });
-
     useEffect(() => {
         const GetHealthData = async () => {
+            Amplify.configure({
+                API: {
+                    endpoints: [
+                        {
+                            name: endpoint.api,
+                            endpoint: endpoint.url,
+                            path: "/"
+                        },
+                    ],
+                },
+            });
             const myInit = {
                 headers: {},
                 response: false,
@@ -55,7 +54,7 @@ const Health = (props: HealthProps) => {
             <Row>
                 <hr></hr>
             </Row>
-            <Row style={{'text-align': 'center'}}>
+            <Row style={{'textAlign': 'center'}}>
                 <Col xs={7}>
                     <div className="page-about">
                     Welcome to our pawpicked assortment of health products for your four-legged friends! 
@@ -67,7 +66,7 @@ const Health = (props: HealthProps) => {
                     <img className="loki-maine" src={LokiMaine} alt="loki-maine" />
                 </Col>
             </Row>
-            <Row style={{'text-align': 'center'}}>
+            <Row style={{'textAlign': 'center'}}>
                 <Col xs={5}>
                     <img className="loki-hotel" src={LokiHotel} alt="loki-hotel" />
                 </Col>
@@ -85,7 +84,12 @@ const Health = (props: HealthProps) => {
             <Row>
                 {data.map((item, index) => (
                     <Col key={index} sm={4}>
-                        <ProductCardFace data={data[index]} index={index} totalItems={data.length} page="health"/>
+                        <ProductCardFace 
+                            data={data[index]} 
+                            index={index} 
+                            totalItems={data.length} 
+                            ip={endpoint.ip}
+                        />
                     </Col>
                 ))}
             </Row>
