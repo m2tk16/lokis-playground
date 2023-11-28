@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ProductCardFace from "./ProductCardFace"
+import TagManager from 'react-gtm-module';
 
 
 interface ToyProps {
@@ -16,7 +17,13 @@ const Toys = (props: ToyProps) => {
     const { endpoint } = props;
     const [data, setData] = useState([])
 
-
+    useEffect(() => {
+        const tagManagerArgs = {
+            gtmId: 'AW-11422830375',
+        };
+        TagManager.initialize(tagManagerArgs);
+    }, []);
+    
     useEffect(() => {
         const GetToyData = async () => {
             Amplify.configure({

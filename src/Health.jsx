@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 import ProductCardFace from "./ProductCardFace"
 import LokiMaine from "./images/loki-maine.png";
 import LokiHotel from "./images/loki-hotel.png";
-
+import TagManager from 'react-gtm-module';
 
 interface HealthProps {
     endpoint: any
@@ -17,6 +17,13 @@ interface HealthProps {
 const Health = (props: HealthProps) => {
     const { endpoint } = props;
     const [data, setData] = useState([])
+
+    useEffect(() => {
+        const tagManagerArgs = {
+            gtmId: 'AW-11422830375',
+        };
+        TagManager.initialize(tagManagerArgs);
+    }, []);
 
     useEffect(() => {
         const GetHealthData = async () => {
