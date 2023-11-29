@@ -17,9 +17,9 @@ const Accessories = (props: AccessoriesProps) => {
     const [data, setData] = useState([])
  
     useEffect(() => {
-    const tagManagerArgs = {
-        gtmId: 'AW-11422830375',
-    };
+        const tagManagerArgs = {
+            gtmId: 'AW-11422830375',
+        };
         TagManager.initialize(tagManagerArgs);
     }, []);
 
