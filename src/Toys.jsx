@@ -19,7 +19,7 @@ const Toys = (props: ToyProps) => {
 
     useEffect(() => {
         const tagManagerArgs = {
-            gtmId: 'AW-11422830375',
+            gtmId: '1701225901848',
         };
         TagManager.initialize(tagManagerArgs);
     }, []);
