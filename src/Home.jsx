@@ -5,8 +5,17 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ThisIsLoki from "./images/loki-park.png";
 import LokiSilly from "./images/loki-silly.png";
+import TagManager from 'react-gtm-module';
 
 const Home = () => {
+
+    useEffect(() => {
+        const tagManagerArgs = {
+            gtmId: 'AW-11422830375',
+        };
+        TagManager.initialize(tagManagerArgs);
+    }, []);
+
     return (
         <Container className="home-body">
             <Row>
