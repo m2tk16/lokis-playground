@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
