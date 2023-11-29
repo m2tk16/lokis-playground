@@ -11,7 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         const tagManagerArgs = {
-            gtmId: '1701225901848',
+            gtmId: 'AW-11422830375',
         };
         TagManager.initialize(tagManagerArgs);
     }, []);
