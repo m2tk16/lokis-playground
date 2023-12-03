@@ -52,6 +52,8 @@ const Subscribe = () => {
             return "This email has been successfully unsubscribed.";
         } else if (emailStatus === 'previously_unsubscribed') {
             return "This email has previously been unsubscribed."
+        } else {
+            return "This email currently does not exist, please subscribe to Loki's Playground."
         }
     }
 
