@@ -34,6 +34,11 @@ const awsmobile = {
             "name": "LokisPlaygroundUpdateProductStarsAPI",
             "endpoint": "https://8b9kn00gge.execute-api.us-east-1.amazonaws.com/staging",
             "region": "us-east-1"
+        },
+        {
+            "name": "LokisPlaygroundSubscriptionAPI",
+            "endpoint": "https://bgfjilk040.execute-api.us-east-1.amazonaws.com/staging",
+            "region": "us-east-1"
         }
     ]
 };

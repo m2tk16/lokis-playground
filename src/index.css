@@ -46,6 +46,10 @@ code {
   text-align: center;
 }
 
+.footer-unsubscribe {
+  text-align: center;
+}
+
 .footer-link-title {
   font-size:1em;
   font-weight: 600;
@@ -228,4 +232,15 @@ code {
 
 .durabiilty-colunn {
   font-size:1em;
+}
+
+.subscribe-column {
+  padding-left:2em;
+  padding-right:2em;
+}
+
+.unsubscribe-text {
+  padding-left:2em;
+  padding-right:2em;
+  padding-bottom:2em;
 }

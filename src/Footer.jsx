@@ -6,6 +6,7 @@ import { Envelope, Instagram } from 'react-bootstrap-icons';
 
 
 const Footer = () => {
+
     return (
         <>
         <hr></hr> 
@@ -75,6 +76,12 @@ const Footer = () => {
                 <a className="footer-links" href="/accessories">Accessories</a>
             </Col>
             <Col xs={5} className="footer-spacer"></Col>
+        </Row>
+        <hr></hr>
+        <Row>
+            <Col xs={12} className="footer-unsubscribe">
+                <a className="footer-links" href="/unsubscribe">Unsubscribe</a>
+            </Col>
         </Row>
         <hr></hr>
         <Row>

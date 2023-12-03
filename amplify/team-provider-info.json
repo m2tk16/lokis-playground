@@ -21,6 +21,10 @@
         "LokisPlaygroundUpdateProductStarsLambda": {
           "deploymentBucketName": "amplify-amplify5d4aca8d8e4e4-staging-160319-deployment",
           "s3Key": "amplify-builds/LokisPlaygroundUpdateProductStarsLambda-5032744853494e637947-build.zip"
+        },
+        "LokisPlaygroundSubscribeLambda": {
+          "deploymentBucketName": "amplify-amplify5d4aca8d8e4e4-staging-160319-deployment",
+          "s3Key": "amplify-builds/LokisPlaygroundSubscribeLambda-444d376a6e395139372b-build.zip"
         }
       },
       "auth": {
@@ -28,7 +32,8 @@
       },
       "api": {
         "LokisPlaygroundProductsAPI": {},
-        "LokisPlaygroundUpdateProductStarsAPI": {}
+        "LokisPlaygroundUpdateProductStarsAPI": {},
+        "LokisPlaygroundSubscriptionAPI": {}
       }
     }
   }

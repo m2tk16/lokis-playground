@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import ProductCardFace from "./ProductCardFace"
 import TagManager from 'react-gtm-module';
+import Subscribe from "./Subscribe";
 
 interface AccessoriesProps {
     endpoint: dict
@@ -63,6 +64,8 @@ const Accessories = (props: AccessoriesProps) => {
                     </Col>
                 ))}
             </Row>
+            
+        <Subscribe />
         </Container>
     )
 }

@@ -9,8 +9,8 @@ import Food from "./Food";
 import Toys from "./Toys";
 import Health from "./Health";
 import Accessories from "./Accessories";
+import Unsubscribe from "./Unsubscribe";
 import Footer from "./Footer";
-
 
 function App() {
   const [endpoint, setEndPoint] = useState({})
@@ -38,6 +38,7 @@ function App() {
             <Route path='/toys' element={<Toys endpoint={endpoint}/>} />
             <Route path='/health' element={<Health endpoint={endpoint}/>} />
             <Route path='/accessories' element={<Accessories endpoint={endpoint}/>} />
+            <Route path='/unsubscribe' element={<Unsubscribe/>} />
           </Routes>
           <Footer />
         </Router>
