@@ -79,7 +79,7 @@ const Subscribe = () => {
         <Container>
             <h5 className="subscribe-route-title">Unsubscribe to Loki's Playground</h5>
             <Row className="subscribe-row">
-                <Col xs={12} className="unsubscribe-text">
+                <Col xs={12} className="subscribe-column">
                     We are sorry to see you go. We hope you enjoyed your time while you were
                     with us. Please input your email and select submit to unsubscribe. You
                     will no longer receive emails for Loki's Playground.
