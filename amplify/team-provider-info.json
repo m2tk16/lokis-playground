@@ -24,7 +24,7 @@
         },
         "LokisPlaygroundSubscribeLambda": {
           "deploymentBucketName": "amplify-amplify5d4aca8d8e4e4-staging-160319-deployment",
-          "s3Key": "amplify-builds/LokisPlaygroundSubscribeLambda-444d376a6e395139372b-build.zip"
+          "s3Key": "amplify-builds/LokisPlaygroundSubscribeLambda-7645727530316478345a-build.zip"
         }
       },
       "auth": {

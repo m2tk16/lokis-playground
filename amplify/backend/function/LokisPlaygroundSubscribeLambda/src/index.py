@@ -29,36 +29,33 @@ def handler(event, context):
             status = 'rewnewed_subscription'
         else:
             status = "previously_subscribed"
-    elif 'Item' in response and sub_type == 'unsubscribe':
+    elif 'Item' in response and sub_type == 'unsubscribe' and len(response["Item"]) > 0:
         user = response["Item"]
         
         if user["subscribed"] == 'Y':
-            previously_subed = True
-        else:
-            previously_subed = False
-
-        item = {
-            'email': email,
-            'date_of_email_subscription': user["date_of_email_subscription"],
-            'date_of_email_unsub': today,
-            'subscribed': 'N',
-            'date_of_last_email_blast': user["date_of_last_email_blast"],
-        }
-        email_sub_date = user["date_of_email_subscription"]
-        email_table.update_item(
-            Key={"email": email},
-            UpdateExpression='SET date_of_email_unsub = :inc, subscribed = :inc2',
-            ExpressionAttributeValues={
-                ':inc': today,
-                ':inc2': 'N'
+            item = {
+                'email': email,
+                'date_of_email_subscription': user["date_of_email_subscription"],
+                'date_of_email_unsub': today,
+                'subscribed': 'N',
+                'date_of_last_email_blast': user["date_of_last_email_blast"],
             }
-        )
-        
-        if previously_subed:
+            email_sub_date = user["date_of_email_subscription"]
+            email_table.update_item(
+                Key={"email": email},
+                UpdateExpression='SET date_of_email_unsub = :inc, subscribed = :inc2',
+                ExpressionAttributeValues={
+                    ':inc': today,
+                    ':inc2': 'N'
+                }
+            )
+
             status = "sucessfully_unsubscribed"
         else:
             status = "previously_unsubscribed"
 
+    elif 'Item' not in response and sub_type == 'unsubscribe':
+        status = "never_subscribed"
     else:
         item = {
             'email': email,
