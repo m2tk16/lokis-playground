@@ -141,9 +141,9 @@ code {
 }
 
 .page-about {
-  font-size: 1em;
+  font-size: .8em;
   text-align: center;
-  padding:1em;
+  padding:.5em;
 }
 
 .product-card-title {
@@ -234,13 +234,31 @@ code {
   font-size:1em;
 }
 
-.subscribe-column {
-  padding-left:2em;
-  padding-right:2em;
-}
+
 
 .unsubscribe-text {
   padding-left:2em;
   padding-right:2em;
   padding-bottom:2em;
+}
+
+.subscribe-row{
+  padding-top:1em;
+}
+
+.subscribe-column{
+  font-size: .8em;
+}
+
+.subscribe-column.button{
+  font-size: .8em;
+  padding-left:1em;
+}
+
+.footer-container {
+  text-align:center;
+}
+
+.subscribe-route-title{
+  text-align:center;
 }

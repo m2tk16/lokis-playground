@@ -8,7 +8,7 @@ import ProductCardFace from "./ProductCardFace"
 import LokiMaine from "./images/loki-maine.png";
 import LokiHotel from "./images/loki-hotel.png";
 import TagManager from 'react-gtm-module';
-import Subscribe from "./Subscribe";
+import SubscribeComponent from "./SubscribeComponent";
 
 
 interface HealthProps {
@@ -102,7 +102,7 @@ const Health = (props: HealthProps) => {
                     </Col>
                 ))}
             </Row>
-            <Subscribe />
+            <SubscribeComponent />
         </Container>
     )
 }

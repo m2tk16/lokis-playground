@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import ThisIsLoki from "./images/loki-park.png";
 import LokiSilly from "./images/loki-silly.png";
 import TagManager from 'react-gtm-module';
+import SubscribeComponent from "./SubscribeComponent";
 
 const Home = () => {
 
@@ -61,8 +62,8 @@ const Home = () => {
                         recommendations.   
                     </div>
                 </Col>
-                
             </Row>
+            <SubscribeComponent />
         </Container>
     )
 }

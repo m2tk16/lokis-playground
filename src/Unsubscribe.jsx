@@ -4,6 +4,7 @@ import "./App.css";
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import Toast from 'react-bootstrap/Toast';
@@ -52,64 +53,72 @@ const Subscribe = () => {
             return "This email has been successfully unsubscribed.";
         } else if (emailStatus === 'previously_unsubscribed') {
             return "This email has previously been unsubscribed."
-        } else {
+        } else if (emailStatus === 'never_subscribed') {
             return "This email currently does not exist, please subscribe to Loki's Playground."
+        } else {
+            return "This email does not exist and fell into a catch all error."
         }
     }
 
     return (
-        <>
-        <Row className="subscribe-row">
-            <Col xs={12} className="unsubscribe-text">
-                We are sorry to see you go. We hope you enjoyed your time while you were
-                with us. Please input your email and select submit to unsubscribe.
-            </Col>
-        </Row>
-
-        <Row className="subscribe-row">
-            <Col key="subscribe-column" className="subscribe-column" sm={12}>
+        <Container>
+            <h5 className="subscribe-route-title">Unsubscribe to Loki's Playground</h5>
+            <Row className="subscribe-row">
+                <Col xs={12} className="unsubscribe-text">
+                    We are sorry to see you go. We hope you enjoyed your time while you were
+                    with us. Please input your email and select submit to unsubscribe. You
+                    will no longer receive emails for Loki's Playground.
+                </Col>
+            </Row>
+            <Row className="subscribe-row">
                 <InputGroup className="mb-3" size="sm">
-                    <InputGroup.Text id="subscribe-label">Unsubscribe:</InputGroup.Text>
-                    <Form.Control
-                        placeholder="Email"
-                        aria-label="Email"
-                        aria-describedby="basic-addon1"
-                        value={emailValue}
-                        onChange={HandleEmailChange}
-                    />
-                    <Button 
-                        variant="outline-info" 
-                        size="sm"
-                        onClick={() => SubscribeSubmission(emailValue, 'unsubscribe')}
-                    >Submit</Button>
-                </InputGroup>
-
-                {emailStatus !== 'pending' &&
-                <Row>
-                    <Col key="subscribe-toast" sm={12}>
-                        <Toast 
-                            show={showToast} 
-                            onClose={toggleShowToast} 
-                            delay={5000} 
-                            autohide
-                        >
-                            <Toast.Header>
-                                <img
-                                    src="holder.js/20x20?text=%20"
-                                    className="rounded me-2"
-                                    alt=""
-                                />
-                                <strong className="me-auto">Subscription Status</strong>
-                                <small>Now</small>
-                            </Toast.Header>
-                            <Toast.Body>{toastCaption()}</Toast.Body>
-                        </Toast>
+                    <Col key="subscribe-column-input" className="subscribe-column button" xs={8}>
+                        <Form.Control
+                            placeholder="Email"
+                            aria-label="Email"
+                            aria-describedby="basic-addon1"
+                            value={emailValue}
+                            onChange={HandleEmailChange}
+                        />
                     </Col>
-                </Row>
-                }
-            </Col>
-        </Row>
-        </>
+                    <Col key="subscribe-column-button" className="subscribe-column button" xs={4}>
+                        <Button 
+                            variant="outline-info" 
+                            size="md"
+                            onClick={() => SubscribeSubmission(emailValue, 'unsubscribe')}
+                            >Submit
+                        </Button>
+                    </Col>
+                </InputGroup>
+            </Row>
+            <Row className="subscribe-row">
+                <Col key="subscribe-column" className="subscribe-column" xs={12}>
+                    {emailStatus !== 'pending' &&
+                    <Row>
+                        <Col key="subscribe-toast" xs={12}>
+                            <Toast 
+                                show={showToast} 
+                                onClose={toggleShowToast} 
+                                delay={5000} 
+                                autohide
+                            >
+                                <Toast.Header>
+                                    <img
+                                        src="holder.js/20x20?text=%20"
+                                        className="rounded me-2"
+                                        alt=""
+                                    />
+                                    <strong className="me-auto">Subscription Status</strong>
+                                    <small>Now</small>
+                                </Toast.Header>
+                                <Toast.Body>{toastCaption()}</Toast.Body>
+                            </Toast>
+                        </Col>
+                    </Row>
+                    }
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

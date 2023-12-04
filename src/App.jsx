@@ -9,6 +9,7 @@ import Food from "./Food";
 import Toys from "./Toys";
 import Health from "./Health";
 import Accessories from "./Accessories";
+import Subscribe from "./Subscribe";
 import Unsubscribe from "./Unsubscribe";
 import Footer from "./Footer";
 
@@ -39,6 +40,7 @@ function App() {
             <Route path='/health' element={<Health endpoint={endpoint}/>} />
             <Route path='/accessories' element={<Accessories endpoint={endpoint}/>} />
             <Route path='/unsubscribe' element={<Unsubscribe/>} />
+            <Route path='/subscribe' element={<Subscribe/>} />
           </Routes>
           <Footer />
         </Router>
