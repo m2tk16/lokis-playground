@@ -37,14 +37,25 @@ const Subscribe = () => {
                 subscription_type: sub_type
             }
         };
-        return API.get("LokisPlaygroundSubscriptionAPI", "/", myInit).then((response) => {
-            setEmailStatus(response.status);
-            setShowToast(true);
-        });
+
+        const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
+        if (emailRegex.test(email)) {
+            console.log("Valid email");
+
+            return API.get("LokisPlaygroundSubscriptionAPI", "/", myInit).then((response) => {
+                setEmailStatus(response.status);
+                setShowToast(true);
+            });
+
+        } else {
+            console.log("Invalid email");
+            setEmailStatus("invalid_email");
+            setShowToast(!showToast)
+        }
     };
 
     const HandleEmailChange = (e: String) => {
-        setEmailValue(e.target.value);
+        setEmailValue(e.target.value.toLowerCase());
     }
  
    
@@ -55,10 +66,14 @@ const Subscribe = () => {
             return "This email has previously been unsubscribed."
         } else if (emailStatus === 'never_subscribed') {
             return "This email currently does not exist, please subscribe to Loki's Playground."
+        } else if (emailStatus === 'invalid_email') {
+            return "Please add a valid email."
         } else {
             return "This email does not exist and fell into a catch all error."
         }
     }
+
+
 
     return (
         <Container>
@@ -98,7 +113,8 @@ const Subscribe = () => {
                         <Col key="subscribe-toast" xs={12}>
                             <Toast 
                                 show={showToast} 
-                                onClose={toggleShowToast} 
+                                onClose={toggleShowToast}
+                                animation={true}
                                 delay={5000} 
                                 autohide
                             >
