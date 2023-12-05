@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Amplify, API } from 'aws-amplify';
 import "./App.css";
 import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
 import Toast from 'react-bootstrap/Toast';
@@ -72,17 +72,16 @@ const SubscribeComponent = () => {
 
     return (
         <>
-        <h5 className="subscribe-route-title">Subscribe to Loki's Playground</h5>
-        <Row className="subscribe-row">
-            <Col key="subscribe-column" className="subscribe-column" sm={12}>
+            <h5 className="subscribe-route-title">Subscribe to Loki's Playground</h5>
+     
+            <Col key="subscribe-column" className="subscribe-column" md={{ span: 6, offset: 3 }}>
                 If you are interested in the content being viewed on this page, 
                 please submit your email below. Additional items will be added regularly
                 and we would love to keep you updated! We promise to not send more emails 
                 than once a quarter.
             </Col>
-        </Row>
-        <Row className="subscribe-row">
-            <Col key="subscribe-column" className="subscribe-column" sm={12}>
+  
+            <Col key="subscribe-column" className="subscribe-column" md={{ span: 6, offset: 3 }}>
                 <InputGroup className="mb-3" size="sm">
                     <InputGroup.Text id="subscribe-label">Subscribe:</InputGroup.Text>
                     <Form.Control
@@ -100,31 +99,35 @@ const SubscribeComponent = () => {
                     >Submit</Button>
                 </InputGroup>
             </Col>
-        </Row>
-        <Row className="subscribe-row">
-            {emailStatus !== 'pending' &&
-            <Col key="subscribe-toast" sm={12}>
-                <Toast 
-                    show={showToast} 
-                    onClose={toggleShowToast}
-                    animation={true}
-                    delay={5000} 
-                    autohide
-                >
-                    <Toast.Header>
-                        <img
-                            src="holder.js/20x20?text=%20"
-                            className="rounded me-2"
-                            alt=""
-                        />
-                        <strong className="me-auto">Subscription Status</strong>
-                        <small>Now</small>
-                    </Toast.Header>
-                    <Toast.Body>{toastCaption()}</Toast.Body>
-                </Toast>
+    
+            <Col key="subscribe-column" className="subscribe-column" md={{ span: 6, offset: 3 }}>
+                {emailStatus !== 'pending' &&
+                <Row>
+                    <Col key="subscribe-toast" md={{ span: 6, offset: 3 }}>
+                        <Toast 
+                            show={showToast} 
+                            onClose={toggleShowToast}
+                            animation={true}
+                            delay={5000} 
+                            autohide
+                        >
+                            <Toast.Header>
+                                <img
+                                    src="holder.js/20x20?text=%20"
+                                    className="rounded me-2"
+                                    alt=""
+                                />
+                                <strong className="me-auto">Subscription Status</strong>
+                                <small>Now</small>
+                            </Toast.Header>
+                            <Toast.Body>{toastCaption()}</Toast.Body>
+                        </Toast>
+                    </Col>
+                </Row>
+                }
             </Col>
-            }
-        </Row>
+            
+      
         </>
     )
 }

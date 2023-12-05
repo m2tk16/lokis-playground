@@ -78,16 +78,16 @@ const Subscribe = () => {
     return (
         <Container>
             <h5 className="subscribe-route-title">Unsubscribe to Loki's Playground</h5>
-            <Row className="subscribe-row">
-                <Col xs={12} className="subscribe-column">
+
+                <Col md={{ span: 6, offset: 3 }} className="subscribe-column">
                     We are sorry to see you go. We hope you enjoyed your time while you were
                     with us. Please input your email and select submit to unsubscribe. You
                     will no longer receive emails for Loki's Playground.
                 </Col>
-            </Row>
-            <Row className="subscribe-row">
-                <InputGroup className="mb-3" size="sm">
-                    <Col key="subscribe-column-input" className="subscribe-column button" xs={8}>
+          
+                <Col md={{ span: 6, offset: 3 }} className="subscribe-column">
+                    <InputGroup className="mb-3" size="sm">
+                        <InputGroup.Text id="subscribe-label">Subscribe:</InputGroup.Text>
                         <Form.Control
                             placeholder="Email"
                             aria-label="Email"
@@ -95,22 +95,19 @@ const Subscribe = () => {
                             value={emailValue}
                             onChange={HandleEmailChange}
                         />
-                    </Col>
-                    <Col key="subscribe-column-button" className="subscribe-column button" xs={4}>
                         <Button 
                             variant="outline-info" 
                             size="md"
                             onClick={() => SubscribeSubmission(emailValue, 'unsubscribe')}
                             >Submit
                         </Button>
-                    </Col>
-                </InputGroup>
-            </Row>
-            <Row className="subscribe-row">
-                <Col key="subscribe-column" className="subscribe-column" xs={12}>
+                    </InputGroup>
+                </Col>
+       
+                <Col key="subscribe-column" className="subscribe-column" md={{ span: 6, offset: 3 }}>
                     {emailStatus !== 'pending' &&
                     <Row>
-                        <Col key="subscribe-toast" xs={12}>
+                        <Col key="subscribe-toast" md={{ span: 6, offset: 3 }}>
                             <Toast 
                                 show={showToast} 
                                 onClose={toggleShowToast}
@@ -133,7 +130,6 @@ const Subscribe = () => {
                     </Row>
                     }
                 </Col>
-            </Row>
         </Container>
     )
 }

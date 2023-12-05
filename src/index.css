@@ -135,8 +135,7 @@ code {
 
 .home-about {
   font-size: .8em;
-  margin-left: 4vw;
-  margin-right: 4vw;
+
   margin-bottom: 1vw;
 }
 
@@ -240,10 +239,6 @@ code {
   padding-left:2em;
   padding-right:2em;
   padding-bottom:2em;
-}
-
-.subscribe-row{
-  padding-top:1em;
 }
 
 .subscribe-column{
